@@ -1,0 +1,48 @@
+@layer components {
+	.settings-page {
+		width: min(720px, 100%);
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+		padding: 32px 28px;
+		border-radius: 32px;
+		background: rgba(255, 255, 255, 0.9);
+		box-shadow:
+			0 26px 60px rgba(15, 23, 42, 0.18),
+			0 0 1px rgba(148, 163, 184, 0.2);
+		backdrop-filter: blur(18px);
+	}
+
+	.settings-page__title {
+		font-size: clamp(26px, 4vw, 36px);
+		font-weight: 700;
+		color: #1e1b4b;
+		margin: 0;
+	}
+
+	.settings-section {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+	}
+
+	.settings-section h2 {
+		margin: 0;
+		font-size: 18px;
+		font-weight: 700;
+		color: #1f2937;
+	}
+
+	.settings-grid {
+		display: grid;
+		gap: 18px;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	}
+
+	@media (max-width: 640px) {
+		.settings-page {
+			padding: 24px 20px;
+			border-radius: 28px;
+		}
+	}
+}

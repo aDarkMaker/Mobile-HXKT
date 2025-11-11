@@ -1,10 +1,10 @@
 @font-face {
-	font-family: 'Xiaogou';
-	src: url('../assets/fonts/Fanpaixiaogouriji-Regular-2.ttf');
+	font-family: 'AliBaBa';
+	src: url('../assets/fonts/AlimamaShuHeiTi-Bold.ttf');
 	font-display: swap;
 }
 
 html,
 body {
-	font-family: 'Xiaogou', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
 }
