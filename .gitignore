@@ -43,3 +43,6 @@ HXKT/*
 
 # vscode
 .vscode/*
+
+# index
+index.html
