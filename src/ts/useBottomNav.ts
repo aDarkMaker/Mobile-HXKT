@@ -1,13 +1,15 @@
-import { ref } from 'vue'
+import { readonly, ref } from 'vue'
 
 export interface NavItem {
-	key: string
+	key: NavKey
 	icon: string
 	label: string
 	alt?: string
 }
 
-const leftItems: readonly NavItem[] = [
+export type NavKey = 'files' | 'calendar' | 'home' | 'tasks' | 'settings'
+
+const leftItems: ReadonlyArray<NavItem> = [
 	{
 		key: 'files',
 		icon: new URL('../assets/img/folder.png', import.meta.url).href,
@@ -22,7 +24,7 @@ const leftItems: readonly NavItem[] = [
 	},
 ] as const
 
-const rightItems: readonly NavItem[] = [
+const rightItems: ReadonlyArray<NavItem> = [
 	{
 		key: 'tasks',
 		icon: new URL('../assets/img/task.png', import.meta.url).href,
@@ -39,12 +41,14 @@ const rightItems: readonly NavItem[] = [
 
 const homeIcon = new URL('../assets/img/home.png', import.meta.url).href
 
-export function useBottomNav() {
-	const activeKey = ref<NavItem['key']>('home')
+const activeKeyState = ref<NavKey>('home')
 
-	const setActive = (key: NavItem['key']) => {
-		activeKey.value = key
-	}
+const setActive = (key: NavKey) => {
+	activeKeyState.value = key
+}
+
+export function useBottomNav() {
+	const activeKey = readonly(activeKeyState)
 
 	return {
 		leftItems,

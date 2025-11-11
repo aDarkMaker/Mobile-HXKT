@@ -44,6 +44,11 @@
 	color: #5b86e3;
 }
 
+.nav-item.is-active {
+	background: rgba(26, 90, 228, 0.4);
+	color: #5b86e3;
+}
+
 .nav-item__icon {
 	width: 28px;
 	height: 28px;
