@@ -46,3 +46,9 @@ bun run build
 ```sh
 bun lint
 ```
+
+### Run on Android
+
+```sh
+bunx cap run android
+```
