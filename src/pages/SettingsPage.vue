@@ -79,17 +79,17 @@ const handlePasswordChange = async () => {
 	passwordError.value = ''
 
 	if (!oldPassword.value || !newPassword.value || !confirmPassword.value) {
-		passwordError.value = '请填写所有密码字段'
+		passwordError.value = t('settings.account.password.errors.empty')
 		return
 	}
 
 	if (newPassword.value !== confirmPassword.value) {
-		passwordError.value = '两次输入的密码不一致'
+		passwordError.value = t('settings.account.password.errors.mismatch')
 		return
 	}
 
 	if (newPassword.value.length < 6) {
-		passwordError.value = '密码长度至少6位'
+		passwordError.value = t('settings.account.password.errors.tooShort')
 		return
 	}
 
@@ -99,9 +99,9 @@ const handlePasswordChange = async () => {
 		newPassword.value = ''
 		confirmPassword.value = ''
 		showPasswordForm.value = false
-		alert('密码修改成功')
+		alert(t('settings.account.password.success'))
 	} catch (error) {
-		passwordError.value = '密码修改失败，请检查当前密码是否正确'
+		passwordError.value = t('settings.account.password.errors.failed')
 		console.error('Password change failed:', error)
 	}
 }
@@ -185,56 +185,59 @@ const handlePasswordChange = async () => {
 
 			<!-- 密码修改 -->
 			<div class="settings-password">
-				<button
-					v-if="!showPasswordForm"
-					type="button"
-					class="settings-password__toggle"
-					@click="showPasswordForm = true"
-				>
-					{{ t('settings.account.password.change') }}
-				</button>
+				<Transition name="password-form" mode="out-in">
+					<button
+						v-if="!showPasswordForm"
+						key="toggle"
+						type="button"
+						class="settings-password__toggle"
+						@click="showPasswordForm = true"
+					>
+						{{ t('settings.account.password.change') }}
+					</button>
 
-				<div v-else class="settings-password__form">
-					<InputField
-						v-model="oldPassword"
-						:label="t('settings.account.password.label')"
-						:placeholder="t('settings.account.password.oldPlaceholder')"
-						type="password"
-						autocomplete="current-password"
-					/>
+					<div v-else key="form" class="settings-password__form">
+						<InputField
+							v-model="oldPassword"
+							:label="t('settings.account.password.label')"
+							:placeholder="t('settings.account.password.oldPlaceholder')"
+							type="password"
+							autocomplete="current-password"
+						/>
 
-					<InputField
-						v-model="newPassword"
-						:placeholder="t('settings.account.password.newPlaceholder')"
-						type="password"
-						autocomplete="new-password"
-						:error="passwordError"
-					/>
+						<InputField
+							v-model="newPassword"
+							:placeholder="t('settings.account.password.newPlaceholder')"
+							type="password"
+							autocomplete="new-password"
+							:error="passwordError"
+						/>
 
-					<InputField
-						v-model="confirmPassword"
-						:placeholder="t('settings.account.password.confirmPlaceholder')"
-						type="password"
-						autocomplete="new-password"
-					/>
+						<InputField
+							v-model="confirmPassword"
+							:placeholder="t('settings.account.password.confirmPlaceholder')"
+							type="password"
+							autocomplete="new-password"
+						/>
 
-					<div class="settings-password__actions">
-						<button
-							type="button"
-							class="settings-password__btn settings-password__btn--primary"
-							@click="handlePasswordChange"
-						>
-							确认修改
-						</button>
-						<button
-							type="button"
-							class="settings-password__btn"
-							@click="showPasswordForm = false"
-						>
-							取消
-						</button>
+						<div class="settings-password__actions">
+							<button
+								type="button"
+								class="settings-password__btn settings-password__btn--primary"
+								@click="handlePasswordChange"
+							>
+								{{ t('settings.account.password.confirm') }}
+							</button>
+							<button
+								type="button"
+								class="settings-password__btn"
+								@click="showPasswordForm = false"
+							>
+								{{ t('settings.account.password.cancel') }}
+							</button>
+						</div>
 					</div>
-				</div>
+				</Transition>
 			</div>
 		</div>
 

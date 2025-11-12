@@ -68,7 +68,16 @@
 				"newPlaceholder": "请输入新密码",
 				"confirmPlaceholder": "请确认新密码",
 				"change": "修改密码",
-				"hint": "密码长度至少6位"
+				"confirm": "确认修改",
+				"cancel": "取消",
+				"hint": "密码长度至少6位",
+				"errors": {
+					"empty": "请填写所有密码字段",
+					"mismatch": "两次输入的密码不一致",
+					"tooShort": "密码长度至少6位",
+					"failed": "密码修改失败，请检查当前密码是否正确"
+				},
+				"success": "密码修改成功"
 			}
 		}
 	}

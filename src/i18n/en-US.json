@@ -43,8 +43,8 @@
 			"avatar": {
 				"label": "Avatar",
 				"upload": "Upload avatar",
-				"remove": "Remove avatar",
-				"change": "Change avatar"
+				"remove": "Remove",
+				"change": "Change"
 			},
 			"username": {
 				"label": "Username",
@@ -68,7 +68,16 @@
 				"newPlaceholder": "Enter new password",
 				"confirmPlaceholder": "Confirm new password",
 				"change": "Change password",
-				"hint": "Password must be at least 6 characters"
+				"confirm": "Confirm",
+				"cancel": "Cancel",
+				"hint": "Password must be at least 6 characters",
+				"errors": {
+					"empty": "Please fill in all password fields",
+					"mismatch": "Passwords do not match",
+					"tooShort": "Password must be at least 6 characters",
+					"failed": "Password change failed, please check if the current password is correct"
+				},
+				"success": "Password changed successfully"
 			}
 		}
 	}
