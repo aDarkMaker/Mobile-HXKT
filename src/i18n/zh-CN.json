@@ -1,0 +1,42 @@
+{
+	"nav": {
+		"files": "文件",
+		"calendar": "日历",
+		"home": "主页",
+		"tasks": "任务",
+		"settings": "设置"
+	},
+	"settings": {
+		"title": "设置",
+		"sections": {
+			"display": "显示设置",
+			"notifications": "通知设置"
+		},
+		"language": {
+			"label": "系统语言",
+			"placeholder": "请选择语言",
+			"options": {
+				"zh-CN": "简体中文",
+				"en-US": "English"
+			}
+		},
+		"theme": {
+			"label": "主题显示",
+			"placeholder": "请选择主题",
+			"options": {
+				"system": "跟随系统",
+				"light": "浅色主题",
+				"dark": "深色主题"
+			}
+		},
+		"notification": {
+			"label": "通知推送",
+			"placeholder": "请选择通知推送方式",
+			"options": {
+				"all": "全部通知",
+				"important": "仅重要通知",
+				"mute": "免打扰"
+			}
+		}
+	}
+}

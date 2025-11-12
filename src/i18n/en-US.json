@@ -1,0 +1,42 @@
+{
+	"nav": {
+		"files": "Files",
+		"calendar": "Calendar",
+		"home": "Home",
+		"tasks": "Tasks",
+		"settings": "Settings"
+	},
+	"settings": {
+		"title": "Settings",
+		"sections": {
+			"display": "Display",
+			"notifications": "Notifications"
+		},
+		"language": {
+			"label": "App Language",
+			"placeholder": "Choose language",
+			"options": {
+				"zh-CN": "简体中文",
+				"en-US": "English"
+			}
+		},
+		"theme": {
+			"label": "Theme Mode",
+			"placeholder": "Choose theme",
+			"options": {
+				"system": "Follow system",
+				"light": "Light theme",
+				"dark": "Dark theme"
+			}
+		},
+		"notification": {
+			"label": "Notification Mode",
+			"placeholder": "Choose notification preference",
+			"options": {
+				"all": "All notifications",
+				"important": "Only important",
+				"mute": "Do not disturb"
+			}
+		}
+	}
+}

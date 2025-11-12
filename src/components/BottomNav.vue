@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { useBottomNav } from '../ts/useBottomNav'
+import { useI18n } from '../ts/i18n'
 
-const { leftItems, rightItems, homeIcon, activeKey, setActive } = useBottomNav()
+const { leftItems, rightItems, homeIcon, homeLabelKey, activeKey, setActive } = useBottomNav()
+const { t } = useI18n()
 </script>
 
 <template>
-	<nav class="bottom-nav" aria-label="主导航">
+	<nav class="bottom-nav" :aria-label="t('nav.home')">
 		<button
 			v-for="item in leftItems"
 			:key="item.key"
@@ -13,10 +15,11 @@ const { leftItems, rightItems, homeIcon, activeKey, setActive } = useBottomNav()
 			class="nav-item"
 			:class="{ 'is-active': activeKey === item.key }"
 			:aria-current="activeKey === item.key ? 'page' : undefined"
+			:aria-label="t(item.labelKey)"
 			@click="setActive(item.key)"
 		>
-			<img :src="item.icon" class="nav-item__icon" :alt="item.alt ?? item.label" />
-			<span class="sr-only">{{ item.label }}</span>
+			<img :src="item.icon" class="nav-item__icon" :alt="t(item.labelKey)" />
+			<span class="sr-only">{{ t(item.labelKey) }}</span>
 		</button>
 
 		<button
@@ -24,10 +27,11 @@ const { leftItems, rightItems, homeIcon, activeKey, setActive } = useBottomNav()
 			class="nav-item"
 			:class="{ 'is-active': activeKey === 'home' }"
 			:aria-current="activeKey === 'home' ? 'page' : undefined"
+			:aria-label="t(homeLabelKey)"
 			@click="setActive('home')"
 		>
-			<img :src="homeIcon" class="nav-item__icon" alt="主页" />
-			<span class="sr-only">主页</span>
+			<img :src="homeIcon" class="nav-item__icon" :alt="t(homeLabelKey)" />
+			<span class="sr-only">{{ t(homeLabelKey) }}</span>
 		</button>
 
 		<button
@@ -37,10 +41,11 @@ const { leftItems, rightItems, homeIcon, activeKey, setActive } = useBottomNav()
 			class="nav-item"
 			:class="{ 'is-active': activeKey === item.key }"
 			:aria-current="activeKey === item.key ? 'page' : undefined"
+			:aria-label="t(item.labelKey)"
 			@click="setActive(item.key)"
 		>
-			<img :src="item.icon" class="nav-item__icon" :alt="item.alt ?? item.label" />
-			<span class="sr-only">{{ item.label }}</span>
+			<img :src="item.icon" class="nav-item__icon" :alt="t(item.labelKey)" />
+			<span class="sr-only">{{ t(item.labelKey) }}</span>
 		</button>
 	</nav>
 </template>

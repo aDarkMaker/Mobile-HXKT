@@ -3,8 +3,7 @@ import { readonly, ref } from 'vue'
 export interface NavItem {
 	key: NavKey
 	icon: string
-	label: string
-	alt?: string
+	labelKey: string
 }
 
 export type NavKey = 'files' | 'calendar' | 'home' | 'tasks' | 'settings'
@@ -13,14 +12,12 @@ const leftItems: ReadonlyArray<NavItem> = [
 	{
 		key: 'files',
 		icon: new URL('../assets/img/folder.png', import.meta.url).href,
-		label: '文件',
-		alt: '文件',
+		labelKey: 'nav.files',
 	},
 	{
 		key: 'calendar',
 		icon: new URL('../assets/img/calendar.png', import.meta.url).href,
-		label: '日历',
-		alt: '日历',
+		labelKey: 'nav.calendar',
 	},
 ] as const
 
@@ -28,18 +25,17 @@ const rightItems: ReadonlyArray<NavItem> = [
 	{
 		key: 'tasks',
 		icon: new URL('../assets/img/task.png', import.meta.url).href,
-		label: '任务',
-		alt: '任务',
+		labelKey: 'nav.tasks',
 	},
 	{
 		key: 'settings',
 		icon: new URL('../assets/img/setting.png', import.meta.url).href,
-		label: '设置',
-		alt: '设置',
+		labelKey: 'nav.settings',
 	},
 ] as const
 
 const homeIcon = new URL('../assets/img/home.png', import.meta.url).href
+const homeLabelKey = 'nav.home'
 
 const activeKeyState = ref<NavKey>('home')
 
@@ -54,6 +50,7 @@ export function useBottomNav() {
 		leftItems,
 		rightItems,
 		homeIcon,
+		homeLabelKey,
 		activeKey,
 		setActive,
 	}

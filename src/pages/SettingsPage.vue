@@ -1,85 +1,70 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import DropDown from '../components/DropDown.vue'
-import { type DropDownOption } from '../ts/dropdown'
+import type { DropDownOption } from '../ts/dropdown'
+import { useI18n, type Locale } from '../ts/i18n'
 
-const languageOptions: DropDownOption[] = [
-	{
-		value: 'zh-CN',
-		label: '简体中文',
-	},
-	{
-		value: 'en-US',
-		label: 'English',
-	},
-]
+const { t, locale, setLocale, availableLocales } = useI18n()
 
-const themeOptions: DropDownOption[] = [
-	{
-		value: 'system',
-		label: '跟随系统',
-	},
-	{
-		value: 'light',
-		label: '浅色主题',
-	},
-	{
-		value: 'dark',
-		label: '深色主题',
-	},
-]
+const languageOptions = computed<DropDownOption[]>(() =>
+	availableLocales.value.map((value) => ({
+		value,
+		label: t(`settings.language.options.${value}`),
+	})),
+)
 
-const notificationOptions: DropDownOption[] = [
-	{
-		value: 'all',
-		label: '全部通知',
-	},
-	{
-		value: 'important',
-		label: '仅重要通知',
-	},
-	{
-		value: 'mute',
-		label: '免打扰',
-	},
-]
+const themeOptions = computed<DropDownOption[]>(() => [
+	{ value: 'system', label: t('settings.theme.options.system') },
+	{ value: 'light', label: t('settings.theme.options.light') },
+	{ value: 'dark', label: t('settings.theme.options.dark') },
+])
 
-const selectedLanguage = ref<DropDownOption['value']>('zh-CN')
+const notificationOptions = computed<DropDownOption[]>(() => [
+	{ value: 'all', label: t('settings.notification.options.all') },
+	{ value: 'important', label: t('settings.notification.options.important') },
+	{ value: 'mute', label: t('settings.notification.options.mute') },
+])
+
+const selectedLanguage = computed<DropDownOption['value']>({
+	get: () => locale.value,
+	set: (value) => setLocale(value as Locale),
+})
+
 const selectedTheme = ref<DropDownOption['value']>('system')
 const selectedNotifications = ref<DropDownOption['value']>('all')
 </script>
 
 <template>
 	<section class="settings-page">
-		<h1 class="settings-page__title">设置</h1>
+		<h1 class="settings-page__title">{{ t('settings.title') }}</h1>
 
 		<div class="settings-section">
-			<h2>显示设置</h2>
+			<h2>{{ t('settings.sections.display') }}</h2>
 			<div class="settings-grid">
 				<DropDown
 					v-model="selectedLanguage"
 					:options="languageOptions"
-					label="系统语言"
-					placeholder="请选择语言"
+					:label="t('settings.language.label')"
+					:placeholder="t('settings.language.placeholder')"
 				/>
 
 				<DropDown
 					v-model="selectedTheme"
 					:options="themeOptions"
-					label="主题显示"
-					placeholder="请选择主题"
+					:label="t('settings.theme.label')"
+					:placeholder="t('settings.theme.placeholder')"
 				/>
 			</div>
 		</div>
 
 		<div class="settings-section">
-			<h2>通知设置</h2>
+			<h2>{{ t('settings.sections.notifications') }}</h2>
 
 			<DropDown
 				v-model="selectedNotifications"
 				:options="notificationOptions"
-				label="通知推送"
-				placeholder="请选择通知推送方式"
+				:label="t('settings.notification.label')"
+				:placeholder="t('settings.notification.placeholder')"
 			/>
 		</div>
 	</section>
