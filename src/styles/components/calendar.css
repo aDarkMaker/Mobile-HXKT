@@ -82,7 +82,6 @@
 		grid-column: 1;
 		grid-row: 1;
 		background: var(--calendar-surface);
-		border-right: 1px solid var(--calendar-border);
 		border-bottom: 1px solid var(--calendar-border);
 		padding: 12px 8px;
 		display: flex;
@@ -111,7 +110,6 @@
 	/* 横轴：周几+日期 */
 	.schedule-day-header {
 		background: var(--calendar-surface);
-		border-right: 1px solid var(--calendar-border);
 		border-bottom: 1px solid var(--calendar-border);
 		padding: 10px 6px;
 		display: flex;
@@ -167,7 +165,6 @@
 	.schedule-time-label {
 		grid-column: 1;
 		background: var(--calendar-surface);
-		border-right: 1px solid var(--calendar-border);
 		border-bottom: 1px solid var(--calendar-border);
 		padding: 8px 6px;
 		display: flex;
@@ -187,7 +184,6 @@
 
 	/* 时间段单元格 */
 	.schedule-cell {
-		border-right: 1px solid var(--calendar-border);
 		border-bottom: 1px solid var(--calendar-border);
 		padding: 4px;
 		background: var(--calendar-day-background);
