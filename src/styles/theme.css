@@ -1,5 +1,5 @@
 :root {
-	--app-background: linear-gradient(180deg, #f5f7ff, #eef2ff);
+	--app-background: white;
 	--text-primary: #1f2937;
 	--text-secondary: #4b5563;
 
@@ -38,7 +38,7 @@
 [data-theme='dark'] {
 	color-scheme: dark;
 
-	--app-background: linear-gradient(180deg, #111827, #1f2937);
+	--app-background: rgb(34, 34, 34);
 	--text-primary: #f8fafc;
 	--text-secondary: #cbd5f5;
 
