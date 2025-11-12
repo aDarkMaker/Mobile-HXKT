@@ -63,44 +63,10 @@ const clickEvent = (calendarEvent: CalendarEvent, e: Event) => {
 	e.stopPropagation()
 	emit('event-click', calendarEvent)
 }
-
-// 触摸滑动支持
-const touchStartX = ref(0)
-const touchEndX = ref(0)
-
-const handleTouchStart = (e: TouchEvent) => {
-	if (e.touches[0]) {
-		touchStartX.value = e.touches[0].clientX
-	}
-}
-
-const handleTouchEnd = (e: TouchEvent) => {
-	if (e.changedTouches[0]) {
-		touchEndX.value = e.changedTouches[0].clientX
-		handleSwipe()
-	}
-}
-
-const handleSwipe = () => {
-	const swipeThreshold = 50
-	const diff = touchStartX.value - touchEndX.value
-
-	if (Math.abs(diff) > swipeThreshold) {
-		if (diff > 0) {
-			nextWeek()
-		} else {
-			prevWeek()
-		}
-	}
-}
 </script>
 
 <template>
-	<div
-		class="calendar calendar-week-schedule"
-		@touchstart="handleTouchStart"
-		@touchend="handleTouchEnd"
-	>
+	<div class="calendar calendar-week-schedule">
 		<div class="calendar-header">
 			<button class="calendar-nav-btn" @click="prevWeek" :aria-label="t('calendar.prevWeek')">
 				<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
