@@ -6,6 +6,40 @@
 		"tasks": "Tasks",
 		"settings": "Settings"
 	},
+	"calendar": {
+		"title": "Calendar",
+		"today": "Today",
+		"prevWeek": "Previous Week",
+		"nextWeek": "Next Week",
+		"weekNumber": "Week {week}",
+		"weekDays": {
+			"0": "Sun",
+			"1": "Mon",
+			"2": "Tue",
+			"3": "Wed",
+			"4": "Thu",
+			"5": "Fri",
+			"6": "Sat"
+		},
+		"eventModal": {
+			"close": "Close",
+			"date": "Date",
+			"time": "Time",
+			"description": "Description",
+			"status": "Status"
+		},
+		"eventTypes": {
+			"meeting": "Meeting",
+			"deadline": "Deadline",
+			"task": "Task",
+			"event": "Event"
+		},
+		"eventStatus": {
+			"pending": "Pending",
+			"confirmed": "Confirmed",
+			"absent": "Absent"
+		}
+	},
 	"settings": {
 		"title": "Settings",
 		"sections": {

@@ -1,0 +1,255 @@
+@layer pages {
+	.calendar-page {
+		width: 100%;
+		max-width: 100%;
+		padding: 0;
+		margin: 0;
+		margin-left: calc(-20px);
+		margin-right: calc(-20px);
+		width: calc(100% + 40px);
+	}
+
+	.calendar-page__title {
+		font-size: clamp(26px, 4.2vw, 34px);
+		color: var(--calendar-text);
+		margin-bottom: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		text-align: center;
+	}
+
+	/* 事件详情模态框 */
+	.event-modal {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: var(--calendar-modal-background);
+		z-index: 1000;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		padding: 20px;
+	}
+
+	.event-modal-content {
+		background: var(--calendar-modal-surface);
+		border-radius: 24px;
+		box-shadow: var(--calendar-modal-shadow);
+		max-width: 500px;
+		width: 100%;
+		max-height: 85vh;
+		overflow-y: auto;
+		backdrop-filter: blur(16px);
+		border: 1px solid var(--calendar-modal-border);
+	}
+
+	.event-modal-header {
+		padding: 24px 28px;
+		border-bottom: 1px solid var(--calendar-modal-border);
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		background: var(--calendar-modal-header-bg);
+		border-radius: 24px 24px 0 0;
+	}
+
+	.event-header-info {
+		flex: 1;
+	}
+
+	.event-modal-title {
+		font-size: 20px;
+		font-weight: 700;
+		color: var(--calendar-text);
+		margin: 0 0 8px 0;
+		letter-spacing: -0.025em;
+	}
+
+	.event-type-badge {
+		display: inline-block;
+		padding: 4px 12px;
+		border-radius: 20px;
+		font-size: 12px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.event-type-badge.meeting {
+		background: var(--calendar-badge-meeting-bg);
+		color: var(--calendar-badge-meeting-text);
+	}
+
+	.event-type-badge.deadline {
+		background: var(--calendar-badge-deadline-bg);
+		color: var(--calendar-badge-deadline-text);
+	}
+
+	.event-type-badge.task {
+		background: var(--calendar-badge-task-bg);
+		color: var(--calendar-badge-task-text);
+	}
+
+	.event-type-badge.event {
+		background: var(--calendar-badge-event-bg);
+		color: var(--calendar-badge-event-text);
+	}
+
+	.close-btn {
+		background: none;
+		border: none;
+		font-size: 28px;
+		color: var(--calendar-text-secondary);
+		cursor: pointer;
+		padding: 0;
+		width: 36px;
+		height: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: all 0.3s ease;
+	}
+
+	.close-btn:hover {
+		background: var(--calendar-hover);
+		color: var(--calendar-text);
+		transform: scale(1.1);
+	}
+
+	.close-btn:active {
+		transform: scale(0.95);
+	}
+
+	.event-modal-body {
+		padding: 28px;
+	}
+
+	.event-details {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.event-detail-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 16px;
+		padding: 16px;
+		background: var(--calendar-modal-detail-bg);
+		border-radius: 14px;
+		border: 1px solid var(--calendar-modal-detail-border);
+		transition: all 0.2s ease;
+	}
+
+	.event-detail-item:hover {
+		background: var(--calendar-modal-detail-hover);
+		border-color: var(--calendar-active);
+	}
+
+	.detail-icon-wrapper {
+		width: 40px;
+		height: 40px;
+		background: var(--calendar-modal-icon-bg);
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		flex-shrink: 0;
+		color: var(--calendar-modal-icon-color);
+	}
+
+	.event-detail-content {
+		flex: 1;
+	}
+
+	.event-detail-label {
+		font-size: 12px;
+		color: var(--calendar-text-secondary);
+		margin-bottom: 4px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.event-detail-value {
+		font-size: 15px;
+		color: var(--calendar-text);
+		font-weight: 500;
+		line-height: 1.4;
+	}
+
+	.status-item .event-detail-value {
+		font-weight: 600;
+	}
+
+	.status-value.status-pending {
+		color: var(--calendar-status-pending);
+	}
+
+	.status-value.status-confirmed {
+		color: var(--calendar-status-confirmed);
+	}
+
+	.status-value.status-absent {
+		color: var(--calendar-status-absent);
+	}
+
+	/* 模态框动画 */
+	.modal-fade-enter-active,
+	.modal-fade-leave-active {
+		transition: opacity 0.3s ease;
+	}
+
+	.modal-fade-enter-from,
+	.modal-fade-leave-to {
+		opacity: 0;
+	}
+
+	.modal-fade-enter-active .event-modal-content,
+	.modal-fade-leave-active .event-modal-content {
+		transition: transform 0.3s ease;
+	}
+
+	.modal-fade-enter-from .event-modal-content,
+	.modal-fade-leave-to .event-modal-content {
+		transform: scale(0.9) translateY(20px);
+	}
+
+	/* 响应式设计 */
+	@media (max-width: 768px) {
+		.event-modal {
+			padding: 0;
+		}
+
+		.event-modal-content {
+			width: 100%;
+			height: 100%;
+			border-radius: 0;
+			max-height: 100vh;
+		}
+
+		.event-modal-header {
+			padding: 20px;
+			border-radius: 0;
+		}
+
+		.event-modal-body {
+			padding: 20px;
+		}
+
+		.event-detail-item {
+			padding: 12px;
+		}
+
+		.detail-icon-wrapper {
+			width: 32px;
+			height: 32px;
+		}
+	}
+}

@@ -6,6 +6,40 @@
 		"tasks": "任务",
 		"settings": "设置"
 	},
+	"calendar": {
+		"title": "日历",
+		"today": "今天",
+		"prevWeek": "上一周",
+		"nextWeek": "下一周",
+		"weekNumber": "第{week}周",
+		"weekDays": {
+			"0": "日",
+			"1": "一",
+			"2": "二",
+			"3": "三",
+			"4": "四",
+			"5": "五",
+			"6": "六"
+		},
+		"eventModal": {
+			"close": "关闭",
+			"date": "日期",
+			"time": "时间",
+			"description": "描述",
+			"status": "状态"
+		},
+		"eventTypes": {
+			"meeting": "会议",
+			"deadline": "截止日期",
+			"task": "任务",
+			"event": "事件"
+		},
+		"eventStatus": {
+			"pending": "待确认",
+			"confirmed": "已确认参加",
+			"absent": "已请假"
+		}
+	},
 	"settings": {
 		"title": "设置",
 		"sections": {
