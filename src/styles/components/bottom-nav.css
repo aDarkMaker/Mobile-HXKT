@@ -37,9 +37,12 @@
 	outline-offset: 2px;
 }
 
-.nav-item:hover {
-	background: var(--bottom-nav-active);
-	color: #5b86e3;
+/* 只在支持 hover 的设备上应用 hover 效果，避免在触摸设备上误触发 */
+@media (hover: hover) {
+	.nav-item:hover {
+		background: var(--bottom-nav-active);
+		color: #5b86e3;
+	}
 }
 
 .nav-item.is-active {

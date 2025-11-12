@@ -13,4 +13,13 @@
 html,
 body {
 	font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	/* 隐藏滚动条但保持滚动功能 */
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+}
+
+/* 隐藏 WebKit 浏览器的滚动条 */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+	display: none;
 }
