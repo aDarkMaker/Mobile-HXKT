@@ -165,6 +165,7 @@
 		font-size: 14px;
 		font-weight: 500;
 		transition: all 0.2s ease;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
 	}
 
 	.settings-password__btn:hover {
@@ -175,6 +176,7 @@
 		background: var(--dropdown-active-text);
 		color: #fff;
 		border-color: var(--dropdown-active-text);
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
 	}
 
 	.settings-password__btn--primary:hover {
