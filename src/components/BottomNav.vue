@@ -51,3 +51,4 @@ const { t } = useI18n()
 </template>
 
 <style scoped src="../styles/components/bottom-nav.css"></style>
+<style scoped src="../styles/theme.css"></style>
