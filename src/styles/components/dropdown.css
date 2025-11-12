@@ -35,12 +35,12 @@
 		gap: 12px;
 		padding: 14px 16px;
 		border-radius: 18px;
-		border: 1px solid rgba(148, 163, 184, 0.35);
-		background: rgba(255, 255, 255, 0.75);
+		border: 1px solid var(--dropdown-border);
+		background: var(--dropdown-surface);
 		box-shadow:
 			0 6px 18px rgba(15, 23, 42, 0.1),
 			0 1px 0 rgba(148, 163, 184, 0.2) inset;
-		color: #0f172a;
+		color: var(--dropdown-text);
 		text-align: left;
 		transition:
 			border-color 0.2s ease,
@@ -83,7 +83,7 @@
 	.dropdown__value-label {
 		font-size: 15px;
 		font-weight: 600;
-		color: #0f172a;
+		color: var(--dropdown-value);
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
@@ -129,7 +129,7 @@
 		padding: 8px;
 		list-style: none;
 		border-radius: 18px;
-		background: rgba(255, 255, 255, 0.98);
+		background: var(--dropdown-surface);
 		box-shadow:
 			0 22px 50px rgba(15, 23, 42, 0.18),
 			0 0 0 1px rgba(148, 163, 184, 0.2);
@@ -153,7 +153,7 @@
 		gap: 12px;
 		padding: 10px 12px;
 		border-radius: 14px;
-		color: #1f2937;
+		color: var(--dropdown-text);
 		transition:
 			background 0.15s ease,
 			transform 0.15s ease;
@@ -161,12 +161,12 @@
 
 	.dropdown__option:hover,
 	.dropdown__option.is-focused {
-		background: rgba(148, 163, 184, 0.12);
+		background: var(--dropdown-hover);
 	}
 
 	.dropdown__option.is-selected {
-		background: rgba(37, 99, 235, 0.12);
-		color: #2563eb;
+		background: var(--dropdown-active);
+		color: var(--dropdown-active-text);
 	}
 
 	.dropdown__option.is-disabled {

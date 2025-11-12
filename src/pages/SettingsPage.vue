@@ -3,8 +3,10 @@ import { computed, ref } from 'vue'
 import DropDown from '../components/DropDown.vue'
 import type { DropDownOption } from '../ts/dropdown'
 import { useI18n, type Locale } from '../ts/i18n'
+import { useTheme, type ThemeMode } from '../ts/theme'
 
 const { t, locale, setLocale, availableLocales } = useI18n()
+const { mode: themeMode, setMode: setThemeMode } = useTheme()
 
 const languageOptions = computed<DropDownOption[]>(() =>
 	availableLocales.value.map((value) => ({
@@ -30,7 +32,10 @@ const selectedLanguage = computed<DropDownOption['value']>({
 	set: (value) => setLocale(value as Locale),
 })
 
-const selectedTheme = ref<DropDownOption['value']>('system')
+const selectedTheme = computed<DropDownOption['value']>({
+	get: () => themeMode.value,
+	set: (value) => setThemeMode(value as ThemeMode),
+})
 const selectedNotifications = ref<DropDownOption['value']>('all')
 </script>
 
