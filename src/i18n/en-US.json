@@ -10,32 +10,65 @@
 		"title": "Settings",
 		"sections": {
 			"display": "Display",
-			"notifications": "Notifications"
+			"notifications": "Notifications",
+			"account": "Account"
 		},
 		"language": {
-			"label": "App Language",
-			"placeholder": "Choose language",
+			"label": "Language",
+			"placeholder": "Select language",
 			"options": {
 				"zh-CN": "简体中文",
 				"en-US": "English"
 			}
 		},
 		"theme": {
-			"label": "Theme Mode",
-			"placeholder": "Choose theme",
+			"label": "Theme",
+			"placeholder": "Select theme",
 			"options": {
-				"system": "Follow system",
-				"light": "Light theme",
-				"dark": "Dark theme"
+				"system": "System",
+				"light": "Light",
+				"dark": "Dark"
 			}
 		},
 		"notification": {
-			"label": "Notification Mode",
-			"placeholder": "Choose notification preference",
+			"label": "Notifications",
+			"placeholder": "Select notification mode",
 			"options": {
-				"all": "All notifications",
-				"important": "Only important",
-				"mute": "Do not disturb"
+				"all": "All",
+				"important": "Important only",
+				"mute": "Mute"
+			}
+		},
+		"account": {
+			"avatar": {
+				"label": "Avatar",
+				"upload": "Upload avatar",
+				"remove": "Remove avatar",
+				"change": "Change avatar"
+			},
+			"username": {
+				"label": "Username",
+				"placeholder": "Enter username",
+				"hint": "Username for login"
+			},
+			"nickname": {
+				"label": "Nickname",
+				"placeholder": "Enter nickname",
+				"hint": "Nickname will be displayed in profile"
+			},
+			"qq": {
+				"label": "QQ Number",
+				"placeholder": "Enter QQ number",
+				"hint": "QQ number for account authentication"
+			},
+			"password": {
+				"label": "Password",
+				"placeholder": "Enter new password",
+				"oldPlaceholder": "Enter current password",
+				"newPlaceholder": "Enter new password",
+				"confirmPlaceholder": "Confirm new password",
+				"change": "Change password",
+				"hint": "Password must be at least 6 characters"
 			}
 		}
 	}

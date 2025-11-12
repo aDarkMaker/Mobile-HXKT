@@ -1,16 +1,11 @@
-@font-face {
-	font-family: 'AliBaBa';
-	src: url('../../assets/fonts/AlimamaShuHeiTi-Bold.ttf');
-	font-display: swap;
-}
-
 @layer components {
 	.dropdown {
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
 		position: relative;
-		font-family: 'AliBaBa', 'Xiaogou', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+		width: 100%;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
 	}
 
 	.dropdown--disabled {
@@ -29,6 +24,7 @@
 
 	.dropdown__trigger {
 		width: 100%;
+		box-sizing: border-box;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;

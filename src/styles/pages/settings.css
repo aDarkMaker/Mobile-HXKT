@@ -15,7 +15,7 @@
 		font-size: clamp(26px, 4vw, 36px);
 		font-weight: 700;
 		color: var(--text-primary);
-		margin: 0;
+		margin: 0 0 8px;
 	}
 
 	.settings-section {
@@ -35,12 +35,169 @@
 		display: grid;
 		gap: 18px;
 		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		width: 100%;
+	}
+
+	/* 头像设置 */
+	.settings-avatar {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		padding: 20px;
+		border-radius: 16px;
+		background: var(--card-background);
+	}
+
+	.settings-avatar__preview {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		overflow: hidden;
+		flex-shrink: 0;
+		border: 3px solid var(--input-border);
+		background: var(--input-surface);
+	}
+
+	.settings-avatar__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.settings-avatar__placeholder {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 32px;
+		font-weight: 700;
+		color: var(--text-secondary);
+		background: var(--input-surface);
+	}
+
+	.settings-avatar__input {
+		display: none;
+	}
+
+	.settings-avatar__actions {
+		display: flex;
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+
+	.settings-avatar__btn {
+		padding: 10px 20px;
+		border-radius: 12px;
+		border: 1px solid var(--input-border);
+		background: var(--input-surface);
+		color: var(--text-primary);
+		font-size: 14px;
+		font-weight: 500;
+		transition: all 0.2s ease;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	}
+
+	.settings-avatar__btn:hover {
+		background: var(--input-hover);
+	}
+
+	.settings-avatar__btn--danger {
+		color: #ef4444;
+		border-color: #ef4444;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	}
+
+	.settings-avatar__btn--danger:hover {
+		background: rgba(239, 68, 68, 0.1);
+	}
+
+	/* 账号字段 */
+	.settings-fields {
+		display: grid;
+		gap: 18px;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		width: 100%;
+	}
+
+	/* 密码修改 */
+	.settings-password {
+		margin-top: 8px;
+	}
+
+	.settings-password__toggle {
+		padding: 10px 20px;
+		border-radius: 12px;
+		border: 1px solid var(--input-border);
+		background: var(--input-surface);
+		color: var(--text-primary);
+		font-size: 14px;
+		font-weight: 500;
+		transition: all 0.2s ease;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	}
+
+	.settings-password__toggle:hover {
+		background: var(--input-hover);
+	}
+
+	.settings-password__form {
+		display: grid;
+		gap: 18px;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		padding: 20px;
+		border-radius: 16px;
+		background: var(--card-background);
+	}
+
+	.settings-password__actions {
+		display: flex;
+		gap: 12px;
+		grid-column: 1 / -1;
+	}
+
+	.settings-password__btn {
+		padding: 10px 20px;
+		border-radius: 12px;
+		border: 1px solid var(--input-border);
+		background: var(--input-surface);
+		color: var(--text-primary);
+		font-size: 14px;
+		font-weight: 500;
+		transition: all 0.2s ease;
+	}
+
+	.settings-password__btn:hover {
+		background: var(--input-hover);
+	}
+
+	.settings-password__btn--primary {
+		background: var(--dropdown-active-text);
+		color: #fff;
+		border-color: var(--dropdown-active-text);
+	}
+
+	.settings-password__btn--primary:hover {
+		opacity: 0.9;
 	}
 
 	@media (max-width: 640px) {
 		.settings-page {
 			padding: 24px 20px;
 			border-radius: 28px;
+		}
+
+		.settings-avatar {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.settings-avatar__actions {
+			width: 100%;
+		}
+
+		.settings-avatar__btn {
+			flex: 1;
 		}
 	}
 }

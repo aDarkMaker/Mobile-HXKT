@@ -10,7 +10,8 @@
 		"title": "设置",
 		"sections": {
 			"display": "显示设置",
-			"notifications": "通知设置"
+			"notifications": "通知设置",
+			"account": "账号管理"
 		},
 		"language": {
 			"label": "系统语言",
@@ -36,6 +37,38 @@
 				"all": "全部通知",
 				"important": "仅重要通知",
 				"mute": "免打扰"
+			}
+		},
+		"account": {
+			"avatar": {
+				"label": "头像",
+				"upload": "上传头像",
+				"remove": "移除头像",
+				"change": "更换头像"
+			},
+			"username": {
+				"label": "账号",
+				"placeholder": "请输入账号",
+				"hint": "账号用于登录"
+			},
+			"nickname": {
+				"label": "昵称",
+				"placeholder": "请输入昵称",
+				"hint": "昵称将显示在个人资料中"
+			},
+			"qq": {
+				"label": "绑定QQ号",
+				"placeholder": "请输入QQ号",
+				"hint": "绑定QQ号用于账号认证"
+			},
+			"password": {
+				"label": "密码",
+				"placeholder": "请输入新密码",
+				"oldPlaceholder": "请输入当前密码",
+				"newPlaceholder": "请输入新密码",
+				"confirmPlaceholder": "请确认新密码",
+				"change": "修改密码",
+				"hint": "密码长度至少6位"
 			}
 		}
 	}

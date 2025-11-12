@@ -4,6 +4,12 @@
 	font-display: swap;
 }
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 html,
 body {
 	font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
