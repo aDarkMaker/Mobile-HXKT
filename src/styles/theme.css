@@ -22,6 +22,13 @@
 	--dropdown-value: #000000;
 	--dropdown-label: #a3a3a3;
 
+	--input-surface: rgba(255, 255, 255, 0.82);
+	--input-border: rgba(148, 163, 184, 0.4);
+	--input-text: #0f172a;
+	--input-placeholder: rgba(100, 116, 139, 0.9);
+	--input-hint: #94a3b8;
+	--input-error: #f97316;
+
 	background-color: var(--app-background);
 	color: var(--text-primary);
 }
@@ -51,4 +58,11 @@
 	--dropdown-active-text: #93c5fd;
 	--dropdown-value: #e2e8f0;
 	--dropdown-label: #dedede;
+
+	--input-surface: rgba(30, 41, 59, 0.85);
+	--input-border: rgba(71, 85, 105, 0.55);
+	--input-text: #e2e8f0;
+	--input-placeholder: rgba(148, 163, 184, 0.8);
+	--input-hint: rgba(148, 163, 184, 0.85);
+	--input-error: #fb923c;
 }
