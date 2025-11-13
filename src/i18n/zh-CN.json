@@ -40,6 +40,18 @@
 			"absent": "已请假"
 		}
 	},
+	"home": {
+		"title": "主页",
+		"announcements": {
+			"title": "公告栏"
+		},
+		"news": {
+			"title": "最新资讯",
+			"loading": "加载中...",
+			"error": "加载失败，请稍后重试",
+			"empty": "暂无资讯"
+		}
+	},
 	"settings": {
 		"title": "设置",
 		"sections": {

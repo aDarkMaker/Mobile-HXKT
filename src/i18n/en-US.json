@@ -40,6 +40,18 @@
 			"absent": "Absent"
 		}
 	},
+	"home": {
+		"title": "Home",
+		"announcements": {
+			"title": "Announcements"
+		},
+		"news": {
+			"title": "Latest News",
+			"loading": "Loading...",
+			"error": "Failed to load, please try again later",
+			"empty": "No news available"
+		}
+	},
 	"settings": {
 		"title": "Settings",
 		"sections": {
