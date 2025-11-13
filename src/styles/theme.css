@@ -8,11 +8,11 @@
 
 	--bottom-nav-background: color-mix(in srgb, #101828 12%, transparent);
 	--bottom-nav-text: #1f2937;
-	--bottom-nav-shadow: 0 18px 25px rgba(16, 24, 40, 0.15), 0 2px 6px rgba(16, 24, 40, 0.08);
+	--bottom-nav-shadow: 0 2px 2px rgba(16, 24, 40, 0.15), 0 2px 6px rgba(16, 24, 40, 0.08);
 	--bottom-nav-active: rgba(37, 99, 235, 0.4);
 
 	--settings-surface: rgba(255, 255, 255, 0.9);
-	--settings-shadow: 0 26px 60px rgba(15, 23, 42, 0.18), 0 0 1px rgba(148, 163, 184, 0.2);
+	--settings-shadow: 0 2px 2px rgba(15, 23, 42, 0.18), 0 0 1px rgba(148, 163, 184, 0.2);
 
 	--dropdown-surface: rgba(255, 255, 255, 0.9);
 	--dropdown-border: rgba(148, 163, 184, 0.35);
@@ -40,7 +40,7 @@
 	--calendar-hover: rgba(148, 163, 184, 0.12);
 	--calendar-active: rgba(37, 99, 235, 0.4);
 	--calendar-active-text: #2563eb;
-	--calendar-shadow: 0 22px 46px rgba(210, 210, 210, 0.16), 0 0 1px rgba(15, 23, 42, 0.08);
+	--calendar-shadow: 0 2px 2px rgba(210, 210, 210, 0.16), 0 0 1px rgba(15, 23, 42, 0.08);
 	--calendar-day-background: rgba(255, 255, 255, 0.85);
 	--calendar-day-border: rgba(148, 163, 184, 0.35);
 	--calendar-day-other-month: rgba(255, 255, 255, 0.5);
@@ -63,7 +63,7 @@
 	--calendar-modal-background: rgba(0, 0, 0, 0.6);
 	--calendar-modal-surface: rgba(255, 255, 255, 0.85);
 	--calendar-modal-border: rgba(148, 163, 184, 0.35);
-	--calendar-modal-shadow: 0 22px 46px rgba(79, 70, 229, 0.16), 0 0 1px rgba(15, 23, 42, 0.08);
+	--calendar-modal-shadow: 0 2px 2px rgba(79, 70, 229, 0.16), 0 0 1px rgba(15, 23, 42, 0.08);
 	--calendar-modal-header-bg: rgba(255, 255, 255, 0.9);
 	--calendar-modal-detail-bg: rgba(255, 255, 255, 0.9);
 	--calendar-modal-detail-border: rgba(148, 163, 184, 0.35);
@@ -113,15 +113,15 @@
 	--text-secondary: #cbd5f5;
 
 	--card-background: rgba(30, 41, 59, 0.82);
-	--card-shadow: 0 22px 46px rgba(2, 6, 23, 0.6), 0 0 1px rgba(8, 47, 73, 0.4);
+	--card-shadow: 0 2px 2px rgba(2, 6, 23, 0.6), 0 0 1px rgba(8, 47, 73, 0.4);
 
 	--bottom-nav-background: color-mix(in srgb, #0f172a 60%, transparent);
 	--bottom-nav-text: #f1f5f9;
-	--bottom-nav-shadow: 0 16px 30px rgba(2, 6, 23, 0.6), 0 2px 6px rgba(2, 6, 23, 0.35);
+	--bottom-nav-shadow: 0 2px 2px rgba(2, 6, 23, 0.6), 0 2px 2px rgba(2, 6, 23, 0.35);
 	--bottom-nav-active: rgba(190, 208, 246, 0.4);
 
 	--settings-surface: rgba(15, 23, 42, 0.82);
-	--settings-shadow: 0 26px 60px rgba(2, 6, 23, 0.55), 0 0 1px rgba(30, 64, 175, 0.25);
+	--settings-shadow: 0 2px 2px rgba(2, 6, 23, 0.55), 0 0 1px rgba(30, 64, 175, 0.25);
 
 	--dropdown-surface: rgba(30, 41, 59, 0.9);
 	--dropdown-border: rgba(71, 85, 105, 0.5);
@@ -172,7 +172,7 @@
 	--calendar-modal-background: rgba(0, 0, 0, 0.6);
 	--calendar-modal-surface: rgba(30, 41, 59, 0.82);
 	--calendar-modal-border: rgba(71, 85, 105, 0.5);
-	--calendar-modal-shadow: 0 22px 46px rgba(2, 6, 23, 0.6), 0 0 1px rgba(8, 47, 73, 0.4);
+	--calendar-modal-shadow: 0 2px 2px rgba(2, 6, 23, 0.6), 0 0 1px rgba(8, 47, 73, 0.4);
 	--calendar-modal-header-bg: rgba(30, 41, 59, 0.9);
 	--calendar-modal-detail-bg: rgba(30, 41, 59, 0.9);
 	--calendar-modal-detail-border: rgba(71, 85, 105, 0.5);
@@ -194,7 +194,7 @@
 	/* Home page variables - dark theme */
 	--home-announcement-background: rgba(30, 41, 59, 0.82);
 	--home-announcement-border: rgba(71, 85, 105, 0.5);
-	--home-announcement-shadow: 0 22px 46px rgba(2, 6, 23, 0.6), 0 0 1px rgba(8, 47, 73, 0.4);
+	--home-announcement-shadow: 0 2px 2px rgba(2, 6, 23, 0.6), 0 0 1px rgba(8, 47, 73, 0.4);
 	--home-announcement-title: #f8fafc;
 	--home-announcement-content: #cbd5f5;
 	--home-announcement-time: #94a3b8;
@@ -203,7 +203,7 @@
 
 	--home-news-background: rgba(30, 41, 59, 0.82);
 	--home-news-border: rgba(71, 85, 105, 0.5);
-	--home-news-shadow: 0 22px 46px rgba(2, 6, 23, 0.6), 0 0 1px rgba(8, 47, 73, 0.4);
+	--home-news-shadow: 0 2px 2px rgba(2, 6, 23, 0.6), 0 0 1px rgba(8, 47, 73, 0.4);
 	--home-news-title: #f8fafc;
 	--home-news-content: #cbd5f5;
 	--home-news-author: #cbd5e1;
