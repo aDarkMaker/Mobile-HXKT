@@ -143,6 +143,7 @@
 		border-radius: 14px;
 		border: 1px solid var(--calendar-modal-detail-border);
 		transition: all 0.2s ease;
+		align-items: center;
 	}
 
 	.event-detail-item:hover {
@@ -161,6 +162,12 @@
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		flex-shrink: 0;
 		color: var(--calendar-modal-icon-color);
+	}
+
+	.detail-icon {
+		width: 20px;
+		height: 20px;
+		object-fit: contain;
 	}
 
 	.event-detail-content {
@@ -252,6 +259,11 @@
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
+		}
+
+		.detail-icon {
+			width: 16px;
+			height: 16px;
 		}
 	}
 }

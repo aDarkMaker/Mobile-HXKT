@@ -14,6 +14,11 @@ import { useI18n } from '../ts/i18n'
 
 const { t } = useI18n()
 
+const calendarIcon = new URL('../assets/img/calendar2.png', import.meta.url).href
+const timeIcon = new URL('../assets/img/time.png', import.meta.url).href
+const describeIcon = new URL('../assets/img/discribe.png', import.meta.url).href
+const goorpassIcon = new URL('../assets/img/goorpass.png', import.meta.url).href
+
 const events = ref<CalendarEvent[]>(createSampleEvents())
 
 const selectedEvent = ref<CalendarEvent | null>(null)
@@ -71,21 +76,7 @@ const closeEventModal = () => {
 						<div class="event-details">
 							<div class="event-detail-item">
 								<div class="detail-icon-wrapper">
-									<svg
-										width="20"
-										height="20"
-										viewBox="0 0 20 20"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											d="M6 2V6M14 2V6M3 10H17M5 4H15C16.1046 4 17 4.89543 17 6V16C17 17.1046 16.1046 18 15 18H5C3.89543 18 3 17.1046 3 16V6C3 4.89543 3.89543 4 5 4Z"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-									</svg>
+									<img :src="calendarIcon" alt="日期" class="detail-icon" />
 								</div>
 								<div class="event-detail-content">
 									<div class="event-detail-label">
@@ -98,28 +89,7 @@ const closeEventModal = () => {
 							</div>
 							<div class="event-detail-item">
 								<div class="detail-icon-wrapper">
-									<svg
-										width="20"
-										height="20"
-										viewBox="0 0 20 20"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-										<path
-											d="M10 6V10L13 13"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-									</svg>
+									<img :src="timeIcon" alt="时间" class="detail-icon" />
 								</div>
 								<div class="event-detail-content">
 									<div class="event-detail-label">
@@ -132,21 +102,7 @@ const closeEventModal = () => {
 							</div>
 							<div v-if="selectedEvent.description" class="event-detail-item">
 								<div class="detail-icon-wrapper">
-									<svg
-										width="20"
-										height="20"
-										viewBox="0 0 20 20"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											d="M8 4H6C4.89543 4 4 4.89543 4 6V14C4 15.1046 4.89543 16 6 16H14C15.1046 16 16 15.1046 16 14V6C16 4.89543 15.1046 4 14 4H12M8 4C8 5.10457 8.89543 6 10 6H10C11.1046 6 12 5.10457 12 4M8 4C8 2.89543 8.89543 2 10 2H10C11.1046 2 12 2.89543 12 4M8 8H12M8 12H12"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-									</svg>
+									<img :src="describeIcon" alt="描述" class="detail-icon" />
 								</div>
 								<div class="event-detail-content">
 									<div class="event-detail-label">
@@ -162,28 +118,7 @@ const closeEventModal = () => {
 								class="event-detail-item status-item"
 							>
 								<div class="detail-icon-wrapper">
-									<svg
-										width="20"
-										height="20"
-										viewBox="0 0 20 20"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											d="M16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8Z"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-										<path
-											d="M6 8L8 10L12 6"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-									</svg>
+									<img :src="goorpassIcon" alt="状态" class="detail-icon" />
 								</div>
 								<div class="event-detail-content">
 									<div class="event-detail-label">
