@@ -42,12 +42,15 @@ export function getStatusClass(attendance?: string): string {
 }
 
 export function createSampleEvents(): CalendarEvent[] {
+	const today = new Date()
+	// 设置时间为16:25
+	today.setHours(16, 25, 0, 0)
 	return [
 		{
 			id: '1',
 			title: '团队例会',
 			type: 'meeting',
-			date: new Date(),
+			date: today,
 			description: '每周例会',
 			attendance: 'pending',
 		},
