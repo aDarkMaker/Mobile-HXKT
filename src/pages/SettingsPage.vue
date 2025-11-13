@@ -2,6 +2,8 @@
 import { computed, ref } from 'vue'
 import DropDown from '../components/DropDown.vue'
 import InputField from '../components/InputField.vue'
+import SettingsVersionInfo from '../components/SettingsVersionInfo.vue'
+import SettingsBackgroundPicker from '../components/SettingsBackgroundPicker.vue'
 import type { DropDownOption } from '../ts/dropdown'
 import { useI18n, type Locale } from '../ts/i18n'
 import { useTheme, type ThemeMode } from '../ts/theme'
@@ -10,6 +12,7 @@ import { useAccount } from '../ts/account'
 const { t, locale, setLocale, availableLocales } = useI18n()
 const { mode: themeMode, setMode: setThemeMode } = useTheme()
 const { account, updateProfile, setAvatar, updatePassword } = useAccount()
+const APP_VERSION = '1.0.0'
 
 const languageOptions = computed<DropDownOption[]>(() =>
 	availableLocales.value.map((value) => ({
@@ -258,6 +261,15 @@ const handlePasswordChange = async () => {
 					:label="t('settings.theme.label')"
 					:placeholder="t('settings.theme.placeholder')"
 				/>
+			</div>
+			<SettingsBackgroundPicker />
+		</div>
+
+		<!-- 应用设置 -->
+		<div class="settings-section">
+			<h2>{{ t('settings.sections.app') }}</h2>
+			<div class="settings-grid">
+				<SettingsVersionInfo :version="APP_VERSION" />
 			</div>
 		</div>
 

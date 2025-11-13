@@ -5,8 +5,10 @@ import CalendarPage from './pages/CalendarPage.vue'
 import HomePage from './pages/HomePage.vue'
 import type { Announcement } from './ts/home'
 import { useBottomNav } from './ts/useBottomNav'
+import { useBackgroundImage } from './ts/background'
 
 const { activeKey } = useBottomNav()
+useBackgroundImage()
 
 /**
  * 公告板

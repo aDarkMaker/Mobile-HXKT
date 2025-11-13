@@ -1,5 +1,7 @@
 :root {
 	--app-background: white;
+	--app-background-image: none;
+	--app-background-overlay: rgba(255, 255, 255, 0.75);
 	--text-primary: #1f2937;
 	--text-secondary: #4b5563;
 
@@ -29,6 +31,7 @@
 	--input-placeholder: rgba(100, 116, 139, 0.9);
 	--input-label: #a3a3a3;
 	--input-hint: #94a3b8;
+	--input-hover: rgba(148, 163, 184, 0.16);
 	--input-error: #f97316;
 
 	/* Calendar variables */
@@ -109,6 +112,7 @@
 	color-scheme: dark;
 
 	--app-background: rgb(34, 34, 34);
+	--app-background-overlay: rgba(15, 23, 42, 0.7);
 	--text-primary: #f8fafc;
 	--text-secondary: #cbd5f5;
 
@@ -138,6 +142,7 @@
 	--input-placeholder: rgba(148, 163, 184, 0.8);
 	--input-label: #dedede;
 	--input-hint: rgba(148, 163, 184, 0.85);
+	--input-hover: rgba(148, 163, 184, 0.15);
 	--input-error: #fb923c;
 
 	/* Calendar variables - dark theme */

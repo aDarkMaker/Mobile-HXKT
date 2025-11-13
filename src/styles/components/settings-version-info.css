@@ -1,0 +1,46 @@
+@layer components {
+	.settings-version {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		padding: 20px;
+		border-radius: 18px;
+		background: var(--card-background);
+		box-shadow: var(--card-shadow);
+	}
+
+	.settings-version__header {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.settings-version__label {
+		font-size: 16px;
+		font-weight: 600;
+		color: var(--text-secondary);
+	}
+
+	.settings-version__badge {
+		padding: 4px 10px;
+		border-radius: 999px;
+		font-size: 12px;
+		font-weight: 600;
+		color: var(--dropdown-active-text);
+		background: color-mix(in srgb, var(--dropdown-active-text) 12%, transparent);
+	}
+
+	.settings-version__value {
+		font-size: clamp(24px, 5vw, 32px);
+		font-weight: 700;
+		color: var(--text-primary);
+		letter-spacing: 0.04em;
+	}
+
+	.settings-version__hint {
+		margin: 0;
+		font-size: 13px;
+		line-height: 1.6;
+		color: var(--text-secondary);
+	}
+}

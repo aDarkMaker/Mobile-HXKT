@@ -57,7 +57,8 @@
 		"sections": {
 			"display": "显示设置",
 			"notifications": "通知设置",
-			"account": "账号管理"
+			"account": "账号管理",
+			"app": "应用设置"
 		},
 		"language": {
 			"label": "系统语言",
@@ -124,6 +125,25 @@
 					"failed": "密码修改失败，请检查当前密码是否正确"
 				},
 				"success": "密码修改成功"
+			}
+		},
+		"app": {
+			"version": {
+				"label": "当前版本",
+				"currentTag": "本地",
+				"hint": "当前显示的是本地版本号，后续将由后端提供最新的信息"
+			}
+		},
+		"display": {
+			"background": {
+				"label": "应用背景",
+				"upload": "上传",
+				"replace": "更换",
+				"remove": "移除",
+				"placeholder": "尚未设置",
+				"hint": "支持 JPG/PNG 等常见格式，建议分辨率不低于 1920×1080，图片仅保存在本地设备中",
+				"invalidType": "请选择图片文件",
+				"oversize": "图片大小请勿超过 5MB"
 			}
 		}
 	}

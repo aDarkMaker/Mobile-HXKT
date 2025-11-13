@@ -1,0 +1,109 @@
+@layer components {
+	.settings-background {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		position: relative;
+		width: 100%;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	}
+
+	.settings-background__header {
+		font-size: 13px;
+		font-weight: 600;
+		color: var(--dropdown-label);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	}
+
+	.settings-background__header h3 {
+		font-size: 13px;
+		font-weight: 600;
+		color: var(--dropdown-label);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	}
+
+	.settings-background__preview {
+		position: relative;
+		border-radius: 14px;
+		overflow: hidden;
+		border: 1px dashed var(--input-border);
+		background: var(--input-surface);
+		min-height: 160px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.settings-background__preview img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.settings-background__preview--empty {
+		border-style: dashed;
+	}
+
+	.settings-background__placeholder {
+		font-size: 14px;
+		color: var(--text-secondary);
+		text-align: center;
+		padding: 20px;
+	}
+
+	.settings-background__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	.settings-background__input {
+		display: none;
+	}
+
+	.settings-background__btn {
+		padding: 10px 20px;
+		border-radius: 12px;
+		border: 1px solid var(--input-border);
+		background: var(--input-surface);
+		color: var(--text-primary);
+		font-size: 14px;
+		font-weight: 500;
+		transition: all 0.2s ease;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	}
+
+	.settings-background__btn:hover {
+		background: var(--input-hover);
+	}
+
+	.settings-background__btn--danger {
+		color: #ef4444;
+		border-color: #ef4444;
+	}
+
+	.settings-background__btn--danger:hover {
+		background: rgba(239, 68, 68, 0.1);
+	}
+
+	.settings-background__hint {
+		margin: 0;
+		font-size: 13px;
+		line-height: 1.6;
+		color: var(--text-secondary);
+	}
+
+	@media (max-width: 640px) {
+		.settings-background__actions {
+			width: 100%;
+		}
+
+		.settings-background__btn {
+			flex: 1;
+		}
+	}
+}

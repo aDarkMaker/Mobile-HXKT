@@ -57,7 +57,8 @@
 		"sections": {
 			"display": "Display",
 			"notifications": "Notifications",
-			"account": "Account"
+			"account": "Account",
+			"app": "App"
 		},
 		"language": {
 			"label": "Language",
@@ -124,6 +125,25 @@
 					"failed": "Password change failed, please check if the current password is correct"
 				},
 				"success": "Password changed successfully"
+			}
+		},
+		"app": {
+			"version": {
+				"label": "Current version",
+				"currentTag": "Local",
+				"hint": "Displaying the packaged version for now. A backend service will provide the latest release information later."
+			}
+		},
+		"display": {
+			"background": {
+				"label": "App background",
+				"upload": "Upload",
+				"replace": "Replace",
+				"remove": "Reset",
+				"placeholder": "No background image selected",
+				"hint": "Supports common JPG/PNG formats. Recommended resolution 1920×1080 or above. The image is stored locally on this device.",
+				"invalidType": "Please choose an image file",
+				"oversize": "The image must not exceed 5MB"
 			}
 		}
 	}
