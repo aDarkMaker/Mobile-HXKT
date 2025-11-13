@@ -12,11 +12,23 @@ function resolveInitialBackground(): string | null {
 function applyBackgroundImage(image: string | null) {
 	if (typeof document === 'undefined') return
 	const root = document.documentElement
+	const body = document.body
 	if (image) {
-		root.style.setProperty('--app-background-image', `url(${image})`)
+		const url = `url(${image})`
+		root.style.setProperty('--app-background-image', url)
+		body.style.backgroundImage = url
+		body.style.backgroundRepeat = 'no-repeat'
+		body.style.backgroundSize = 'cover'
+		body.style.backgroundPosition = 'center'
+		body.style.backgroundAttachment = 'fixed'
 		root.classList.add('has-custom-background')
 	} else {
 		root.style.setProperty('--app-background-image', 'none')
+		body.style.removeProperty('background-image')
+		body.style.removeProperty('background-repeat')
+		body.style.removeProperty('background-size')
+		body.style.removeProperty('background-position')
+		body.style.removeProperty('background-attachment')
 		root.classList.remove('has-custom-background')
 	}
 }
