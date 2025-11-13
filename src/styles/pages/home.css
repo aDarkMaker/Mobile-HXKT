@@ -46,6 +46,29 @@
 
 	.home-error {
 		color: var(--input-error);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.retry-button {
+		padding: 8px 16px;
+		background: var(--button-primary);
+		color: var(--button-primary-text);
+		border: none;
+		border-radius: 8px;
+		font-size: 14px;
+		cursor: pointer;
+		transition: opacity 0.2s;
+	}
+
+	.retry-button:hover {
+		opacity: 0.8;
+	}
+
+	.retry-button:active {
+		opacity: 0.6;
 	}
 
 	@media (max-width: 480px) {
@@ -68,4 +91,3 @@
 		}
 	}
 }
-
