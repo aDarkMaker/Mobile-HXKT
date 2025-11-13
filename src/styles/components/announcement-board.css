@@ -14,14 +14,6 @@
 		box-shadow: var(--home-announcement-shadow);
 		backdrop-filter: blur(16px);
 		transition: all 0.2s ease;
-		cursor: pointer;
-	}
-
-	.announcement-item:hover {
-		transform: translateY(-2px);
-		box-shadow:
-			0 4px 8px rgba(144, 144, 144, 0.2),
-			0 0 2px rgba(15, 23, 42, 0.1);
 	}
 
 	.announcement-item.important {
