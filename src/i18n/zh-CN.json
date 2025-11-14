@@ -52,6 +52,54 @@
 			"empty": "暂无资讯"
 		}
 	},
+	"task": {
+		"title": "任务中心",
+		"subtitle": "小科提醒你该工作了！！！",
+		"publish": "发布任务",
+		"loading": "加载中...",
+		"abandonConfirm": "确定要放弃这个任务吗？",
+		"tabs": {
+			"available": "待接取",
+			"myTasks": "我的任务"
+		},
+		"empty": {
+			"title": "暂无任务",
+			"description": "点击「发布任务」按钮创建新任务"
+		},
+		"form": {
+			"title": "发布任务",
+			"titleLabel": "任务标题",
+			"titlePlaceholder": "请输入任务标题",
+			"descriptionLabel": "任务描述",
+			"descriptionPlaceholder": "请输入任务描述",
+			"typeLabel": "任务类型",
+			"typePlaceholder": "请选择任务类型",
+			"type": {
+				"personal": "个人任务",
+				"team": "团体任务"
+			},
+			"maxCountLabel": "推荐人数",
+			"maxCountPlaceholder": "请输入推荐人数",
+			"priorityLabel": "优先级",
+			"priorityPlaceholder": "请选择优先级",
+			"priority": {
+				"low": "低",
+				"medium": "中",
+				"high": "高",
+				"urgent": "紧急"
+			},
+			"deadlineLabel": "截止时间",
+			"tagsLabel": "标签",
+			"tagsPlaceholder": "例如：前端,紧急,设计（用逗号分隔）",
+			"cancel": "取消",
+			"submit": "发布",
+			"errors": {
+				"empty": "请填写任务标题和描述",
+				"maxCount": "人数上限必须是1-100之间的数字",
+				"publishFailed": "发布任务失败，请重试"
+			}
+		}
+	},
 	"settings": {
 		"title": "设置",
 		"sections": {

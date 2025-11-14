@@ -1,0 +1,307 @@
+@layer components {
+	.task-card {
+		background: var(--home-news-background);
+		border-radius: 16px;
+		padding: 20px;
+		margin-bottom: 16px;
+		box-shadow: var(--home-news-shadow);
+		transition: all 0.3s ease;
+		border-left: 4px solid transparent;
+		position: relative;
+		overflow: hidden;
+		backdrop-filter: blur(16px);
+		border: 1px solid var(--home-news-border);
+	}
+
+	.task-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+	}
+
+	.task-card--my-task {
+		border-left-color: #4299e1;
+		background: rgba(252, 254, 255, 0.95);
+	}
+
+	.task-card--completed {
+		border-left-color: #48bb78;
+		background: rgba(247, 255, 249, 0.95);
+	}
+
+	/* 任务头部 */
+	.task-card__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 12px;
+		gap: 16px;
+	}
+
+	.task-card__progress {
+		width: 4px;
+		height: 50px;
+		background: #6b7280;
+		border-radius: 2px;
+		margin-right: 12px;
+		flex-shrink: 0;
+	}
+
+	.task-card__progress--completed {
+		background: #4299e1;
+	}
+
+	.task-card__title-section {
+		flex: 1;
+	}
+
+	.task-card__title {
+		font-size: 18px;
+		font-weight: 700;
+		color: var(--text-primary);
+		margin: 0 0 8px 0;
+		line-height: 1.3;
+	}
+
+	.task-card__meta {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex-wrap: wrap;
+	}
+
+	.task-card__tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		padding: 4px 10px;
+		border-radius: 6px;
+		font-size: 12px;
+		font-weight: 500;
+		background: var(--input-hover);
+		color: var(--text-secondary);
+	}
+
+	.task-card__tag--personal {
+		background: rgba(59, 130, 246, 0.1);
+		color: #3b82f6;
+	}
+
+	.task-card__tag--team {
+		background: rgba(139, 92, 246, 0.1);
+		color: #8b5cf6;
+	}
+
+	.task-card__tag--inprogress {
+		background: rgba(59, 130, 246, 0.1);
+		color: #3b82f6;
+	}
+
+	.task-card__tag--completed {
+		background: rgba(34, 197, 94, 0.1);
+		color: #22c55e;
+	}
+
+	.task-card__tag--priority {
+		background: rgba(239, 68, 68, 0.1);
+		color: #ef4444;
+	}
+
+	.task-card__tag-icon {
+		width: 12px;
+		height: 12px;
+		flex-shrink: 0;
+	}
+
+	.task-card__publisher {
+		text-align: right;
+		flex-shrink: 0;
+	}
+
+	.task-card__publisher-name {
+		font-size: 13px;
+		color: var(--text-secondary);
+		margin-bottom: 4px;
+	}
+
+	.task-card__time {
+		font-size: 12px;
+		color: var(--text-tertiary);
+	}
+
+	/* 任务描述 */
+	.task-card__description {
+		font-size: 14px;
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: 16px;
+		max-height: 72px;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+	}
+
+	/* 标签和截止时间 */
+	.task-card__tags-deadline {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 16px;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	.task-card__tags {
+		display: flex;
+		gap: 6px;
+		flex-wrap: wrap;
+	}
+
+	.task-card__deadline {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		color: #ed8936;
+		font-size: 13px;
+		font-weight: 500;
+	}
+
+	.task-card__deadline-icon {
+		width: 16px;
+		height: 16px;
+		flex-shrink: 0;
+	}
+
+	/* 任务底部 */
+	.task-card__footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 16px;
+		padding-top: 16px;
+		border-top: 1px solid var(--home-news-border);
+	}
+
+	.task-card__footer-left {
+		flex: 1;
+	}
+
+	.task-card__team-info {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		color: var(--text-secondary);
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+	.task-card__team-icon {
+		width: 18px;
+		height: 18px;
+		color: #949dc0;
+		flex-shrink: 0;
+	}
+
+	.task-card__actions {
+		display: flex;
+		gap: 10px;
+		flex-shrink: 0;
+		align-items: center;
+	}
+
+	/* 操作按钮 */
+	.task-card__btn {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		padding: 8px 16px;
+		border: none;
+		border-radius: 8px;
+		font-size: 13px;
+		font-weight: 600;
+		transition: all 0.2s ease;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	}
+
+	.task-card__btn-icon {
+		width: 14px;
+		height: 14px;
+		flex-shrink: 0;
+	}
+
+	.task-card__btn--accept {
+		background: #70be90;
+		color: #ffffff;
+		box-shadow: 0 2px 2px rgba(72, 187, 120, 0.3);
+	}
+
+	.task-card__btn--accept:hover {
+		box-shadow: 0 2px 2px rgba(72, 187, 120, 0.4);
+	}
+
+	.task-card__btn--complete {
+		background: #70be90;
+		color: #ffffff;
+		box-shadow: 0 2px 2px rgba(72, 187, 120, 0.3);
+	}
+
+	.task-card__btn--complete:hover {
+		box-shadow: 0 2px 2px rgba(72, 187, 120, 0.4);
+	}
+
+	.task-card__btn--abandon {
+		background: #fed7d7;
+		color: #c53030;
+		box-shadow: 0 2px 2px rgba(197, 48, 48, 0.2);
+	}
+
+	.task-card__btn--abandon:hover {
+		background: #feb2b2;
+		box-shadow: 0 2px 2px rgba(197, 48, 48, 0.3);
+	}
+
+	.task-card__badge {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		padding: 8px 16px;
+		background: #f0fff4;
+		color: #48bb78;
+		border: 1px solid #c6f6d5;
+		border-radius: 6px;
+		font-size: 13px;
+		font-weight: 500;
+	}
+
+	/* 响应式设计 */
+	@media (max-width: 480px) {
+		.task-card {
+			padding: 16px;
+		}
+
+		.task-card__header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 12px;
+		}
+
+		.task-card__publisher {
+			text-align: left;
+		}
+
+		.task-card__tags-deadline {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.task-card__footer {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 12px;
+		}
+
+		.task-card__actions {
+			width: 100%;
+			justify-content: flex-end;
+		}
+	}
+}

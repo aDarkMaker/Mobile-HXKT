@@ -52,6 +52,54 @@
 			"empty": "No news available"
 		}
 	},
+	"task": {
+		"title": "Task Center",
+		"subtitle": "Time to work!",
+		"publish": "Publish Task",
+		"loading": "Loading...",
+		"abandonConfirm": "Are you sure you want to abandon this task?",
+		"tabs": {
+			"available": "Available",
+			"myTasks": "My Tasks"
+		},
+		"empty": {
+			"title": "No tasks",
+			"description": "Click the \"Publish Task\" button to create"
+		},
+		"form": {
+			"title": "Publish Task",
+			"titleLabel": "Task Title",
+			"titlePlaceholder": "Enter task title",
+			"descriptionLabel": "Task Description",
+			"descriptionPlaceholder": "Enter task description",
+			"typeLabel": "Task Type",
+			"typePlaceholder": "Select task type",
+			"type": {
+				"personal": "Personal Task",
+				"team": "Team Task"
+			},
+			"maxCountLabel": "Recommended Count",
+			"maxCountPlaceholder": "Enter recommended count",
+			"priorityLabel": "Priority",
+			"priorityPlaceholder": "Select priority",
+			"priority": {
+				"low": "Low",
+				"medium": "Medium",
+				"high": "High",
+				"urgent": "Urgent"
+			},
+			"deadlineLabel": "Deadline",
+			"tagsLabel": "Tags",
+			"tagsPlaceholder": "e.g., frontend, urgent, design (comma-separated)",
+			"cancel": "Cancel",
+			"submit": "Publish",
+			"errors": {
+				"empty": "Please fill in task title and description",
+				"maxCount": "Max count must be between 1 and 100",
+				"publishFailed": "Failed to publish task, please try again"
+			}
+		}
+	},
 	"settings": {
 		"title": "Settings",
 		"sections": {

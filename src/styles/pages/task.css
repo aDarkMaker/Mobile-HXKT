@@ -1,0 +1,241 @@
+@layer pages {
+	.task-page {
+		width: 100%;
+		max-width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+
+	.task-page__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 24px;
+		gap: 16px;
+		flex-wrap: wrap;
+	}
+
+	.task-page__title h1 {
+		font-size: clamp(26px, 4.2vw, 34px);
+		color: var(--text-primary);
+		margin: 0 0 8px 0;
+		font-weight: 700;
+	}
+
+	.task-page__title p {
+		font-size: clamp(14px, 2vw, 16px);
+		color: var(--text-secondary);
+		margin: 0;
+	}
+
+	.task-page__publish-btn {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 12px 20px;
+		background: var(--dropdown-active-text);
+		color: #ffffff;
+		border: none;
+		border-radius: 12px;
+		font-size: 14px;
+		font-weight: 600;
+		transition: all 0.2s ease;
+		box-shadow: 0 2px 2px rgba(37, 99, 235, 0.3);
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	}
+
+	.task-page__publish-btn:hover {
+		box-shadow: 0 2px 2px rgba(37, 99, 235, 0.4);
+	}
+
+	.task-page__publish-icon {
+		width: 18px;
+		height: 18px;
+	}
+
+	/* 标签页 */
+	.task-tabs {
+		display: flex;
+		gap: 0;
+		background: var(--card-background);
+		border-radius: 16px;
+		padding: 8px;
+		margin-bottom: 24px;
+		box-shadow: var(--card-shadow);
+		border: 1px solid var(--home-news-border);
+	}
+
+	.task-tab {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		padding: 12px 16px;
+		background: transparent;
+		border: none;
+		border-radius: 12px;
+		color: var(--text-secondary);
+		font-size: 14px;
+		font-weight: 600;
+		transition: all 0.2s ease;
+		position: relative;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		user-select: none;
+		outline: none;
+	}
+
+	.task-tab:hover {
+		background: var(--input-hover);
+		color: var(--text-primary);
+	}
+
+	.task-tab--active {
+		background: var(--dropdown-active-text);
+		color: #ffffff;
+		box-shadow: 0 2px 2px rgba(37, 99, 235, 0.3);
+	}
+
+	.task-tab--active:hover {
+		box-shadow: 0 2px 2px rgba(37, 99, 235, 0.4);
+	}
+
+	.task-tab:focus {
+		outline: none;
+	}
+
+	.task-tab:focus-visible {
+		outline: 2px solid var(--dropdown-active-text);
+		outline-offset: 2px;
+	}
+
+	.task-tab:active:not(.task-tab--active) {
+		transform: scale(0.98);
+	}
+
+	/* 确保激活状态优先级最高 */
+	.task-tab--active,
+	.task-tab--active:focus,
+	.task-tab--active:hover,
+	.task-tab--active:active {
+		background: var(--dropdown-active-text);
+		color: #ffffff;
+		box-shadow: 0 2px 2px rgba(37, 99, 235, 0.3);
+	}
+
+	.task-tab__icon {
+		width: 18px;
+		height: 18px;
+		flex-shrink: 0;
+	}
+
+	.task-tab__badge {
+		background: rgba(255, 255, 255, 0.2);
+		color: #ffffff;
+		font-size: 11px;
+		min-width: 20px;
+		height: 20px;
+		padding: 0 6px;
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 600;
+	}
+
+	.task-tab:not(.task-tab--active) .task-tab__badge {
+		background: var(--input-hover);
+		color: var(--text-secondary);
+	}
+
+	.task-tab__badge--danger {
+		background: rgba(239, 68, 68, 0.15);
+		color: #ef4444;
+	}
+
+	.task-tab--active .task-tab__badge--danger {
+		background: rgba(255, 255, 255, 0.3);
+		color: #ffffff;
+	}
+
+	/* 任务内容区域 */
+	.task-content {
+		position: relative;
+		min-height: 200px;
+	}
+
+	.task-loading,
+	.task-empty {
+		padding: 40px 20px;
+		text-align: center;
+		color: var(--text-secondary);
+		font-size: 14px;
+		background: var(--home-news-background);
+		border: 1px solid var(--home-news-border);
+		border-radius: 16px;
+		box-shadow: var(--home-news-shadow);
+		backdrop-filter: blur(16px);
+	}
+
+	.task-empty__icon {
+		width: 64px;
+		height: 64px;
+		margin: 0 auto 16px;
+		color: var(--text-secondary);
+		opacity: 0.5;
+	}
+
+	.task-empty__icon svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	.task-empty h3 {
+		font-size: 16px;
+		font-weight: 600;
+		color: var(--text-primary);
+		margin: 0 0 8px 0;
+	}
+
+	.task-empty p {
+		font-size: 14px;
+		color: var(--text-secondary);
+		margin: 0;
+	}
+
+	.task-list {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	/* 响应式设计 */
+	@media (max-width: 480px) {
+		.task-page__header {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.task-page__publish-btn {
+			width: 100%;
+			justify-content: center;
+		}
+
+		.task-tabs {
+			padding: 6px;
+		}
+
+		.task-tab {
+			padding: 10px 12px;
+			font-size: 13px;
+			gap: 6px;
+		}
+
+		.task-tab__icon {
+			width: 16px;
+			height: 16px;
+		}
+	}
+}

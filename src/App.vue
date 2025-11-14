@@ -4,6 +4,7 @@ import BottomNav from './components/BottomNav.vue'
 import SettingsPage from './pages/SettingsPage.vue'
 import CalendarPage from './pages/CalendarPage.vue'
 import HomePage from './pages/HomePage.vue'
+import TaskPage from './pages/TaskPage.vue'
 import type { Announcement, BilibiliDynamic } from './ts/home'
 import { useBottomNav } from './ts/useBottomNav'
 import { useBackgroundImage } from './ts/background'
@@ -52,6 +53,7 @@ onMounted(async () => {
 				:announcements="announcements"
 				:news="bilibiliDynamics"
 			/>
+			<TaskPage v-if="activeKey === 'tasks'" />
 			<CalendarPage v-if="activeKey === 'calendar'" />
 			<SettingsPage v-if="activeKey === 'settings'" />
 		</main>
