@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import BottomNav from './components/BottomNav.vue'
 import SettingsPage from './pages/SettingsPage.vue'
 import CalendarPage from './pages/CalendarPage.vue'
 import HomePage from './pages/HomePage.vue'
-import type { Announcement } from './ts/home'
+import type { Announcement, BilibiliDynamic } from './ts/home'
 import { useBottomNav } from './ts/useBottomNav'
 import { useBackgroundImage } from './ts/background'
 
@@ -21,12 +22,31 @@ const announcements: Announcement[] = [
 		publishTime: '2025-11-15',
 	},
 ]
+
+/**
+ * B站动态数据
+ */
+const bilibiliDynamics = ref<BilibiliDynamic[]>([])
+
+onMounted(async () => {
+	try {
+		const response = await fetch('/bilibili-dynamics.json')
+		const data = await response.json()
+		bilibiliDynamics.value = data
+	} catch (error) {
+		console.error('Failed to load bilibili dynamics:', error)
+	}
+})
 </script>
 
 <template>
 	<div class="app-shell">
 		<main class="app-body">
-			<HomePage v-if="activeKey === 'home'" :announcements="announcements" />
+			<HomePage
+				v-if="activeKey === 'home'"
+				:announcements="announcements"
+				:news="bilibiliDynamics"
+			/>
 			<CalendarPage v-if="activeKey === 'calendar'" />
 			<SettingsPage v-if="activeKey === 'settings'" />
 		</main>
