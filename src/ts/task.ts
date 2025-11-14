@@ -1,6 +1,7 @@
 export type TaskType = 'personal' | 'team'
 export type TaskStatus = 'available' | 'inProgress' | 'completed'
 export type TaskPriority = 1 | 2 | 3 | 4 // 1:低, 2:中, 3:高, 4:紧急
+export type TaskTabType = 'available' | 'my-tasks' // 标签页类型
 
 export interface Task {
 	id: string

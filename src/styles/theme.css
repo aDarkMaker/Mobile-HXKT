@@ -9,7 +9,7 @@
 
 	--bottom-nav-background: color-mix(in srgb, #101828 12%, transparent);
 	--bottom-nav-text: #1f2937;
-	--bottom-nav-shadow: 0 2px 2px rgba(16, 24, 40, 0.15), 0 2px 6px rgba(16, 24, 40, 0.08);
+	--bottom-nav-shadow: 0 2px 2px rgba(16, 24, 40, 0.15), 0 2px 2px rgba(16, 24, 40, 0.08);
 	--bottom-nav-active: rgba(37, 99, 235, 0.4);
 
 	--settings-surface: rgba(255, 255, 255, 0.9);

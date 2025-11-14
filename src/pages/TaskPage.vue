@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { defineOptions } from 'vue'
 import TaskCard from '../components/TaskCard.vue'
 import PublishTaskModal from '../components/PublishTaskModal.vue'
-import type { Task, TaskType } from '../ts/task'
+import type { Task, TaskTabType } from '../ts/task'
 import { useI18n } from '../ts/i18n'
 
 defineOptions({
@@ -12,7 +12,7 @@ defineOptions({
 
 const { t } = useI18n()
 
-const selectedTab = ref<TaskType | 'my-tasks'>('available')
+const selectedTab = ref<TaskTabType>('available')
 const availableTasks = ref<Task[]>([])
 const myTasks = ref<Task[]>([])
 const showPublishModal = ref(false)
@@ -24,7 +24,7 @@ const availableCount = computed(() => availableTasks.value.length)
 const myTasksCount = computed(() => myTasks.value.length)
 
 // 切换标签页
-const switchTab = (tab: TaskType | 'my-tasks') => {
+const switchTab = (tab: TaskTabType) => {
 	// 立即更新状态，避免延迟
 	selectedTab.value = tab
 }

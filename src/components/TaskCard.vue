@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineOptions, computed } from 'vue'
-import type { Task, TaskType } from '../ts/task'
+import type { Task, TaskTabType } from '../ts/task'
 
 defineOptions({
 	name: 'TaskCard',
@@ -8,7 +8,7 @@ defineOptions({
 
 const props = defineProps<{
 	task: Task
-	type: TaskType | 'my-tasks'
+	type: TaskTabType
 }>()
 
 const emit = defineEmits<{

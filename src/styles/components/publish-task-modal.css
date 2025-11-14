@@ -180,7 +180,7 @@
 		justify-content: flex-end;
 		gap: 12px;
 		padding: 20px 24px;
-		padding-bottom: calc(20px + max(env(safe-area-inset-bottom, 0px), 18px));
+		padding-bottom: calc(32px + max(env(safe-area-inset-bottom, 0px), 18px));
 		border-top: 1px solid var(--home-news-border);
 		background: var(--input-hover);
 	}
@@ -236,7 +236,7 @@
 		}
 
 		.publish-task-modal__footer {
-			padding-bottom: calc(16px + max(env(safe-area-inset-bottom, 0px), 18px));
+			padding-bottom: calc(28px + max(env(safe-area-inset-bottom, 0px), 18px));
 		}
 
 		.publish-task-modal__btn {
