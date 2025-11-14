@@ -142,6 +142,7 @@
 				"remove": "Reset",
 				"placeholder": "No background image selected",
 				"hint": "Supports common JPG/PNG formats. Recommended resolution 1920×1080 or above. The image is stored locally on this device.",
+				"positionHint": "Drag to adjust",
 				"invalidType": "Please choose an image file",
 				"oversize": "The image must not exceed 5MB"
 			}
