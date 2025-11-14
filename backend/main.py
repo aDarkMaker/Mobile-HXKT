@@ -3,6 +3,8 @@ from typing import Union
 from fastapi import FastAPI  # pyright: ignore[reportMissingImports]
 from pydantic import BaseModel  # pyright: ignore[reportMissingImports]
 
+from core.fetch import fetch_bilibili_dynamics
+
 app = FastAPI()
 
 
@@ -15,6 +17,11 @@ class Item(BaseModel):
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
+
+
+@app.get("/bilibili/dynamics")
+def get_bilibili_dynamics():
+    return fetch_bilibili_dynamics()
 
 
 @app.get("/items/{item_id}")
