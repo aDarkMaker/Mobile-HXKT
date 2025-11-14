@@ -14,5 +14,6 @@ export interface BilibiliDynamic {
 	点赞数: number
 	评论数: number
 	转发数: number
+	发布时间?: number // UNIX 秒级时间戳
 	link?: string
 }

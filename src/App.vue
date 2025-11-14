@@ -32,7 +32,12 @@ onMounted(async () => {
 	try {
 		const response = await fetch('/bilibili-dynamics.json')
 		const data = await response.json()
-		bilibiliDynamics.value = data
+		// 兼容新旧数据结构：如果是数组直接使用，如果是对象则使用 dynamics 字段
+		if (Array.isArray(data)) {
+			bilibiliDynamics.value = data
+		} else if (data.dynamics && Array.isArray(data.dynamics)) {
+			bilibiliDynamics.value = data.dynamics
+		}
 	} catch (error) {
 		console.error('Failed to load bilibili dynamics:', error)
 	}

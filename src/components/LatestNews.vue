@@ -32,6 +32,31 @@ const formatNumber = (num: number | string): string => {
 	return num.toString()
 }
 
+const formatPublishTime = (timestamp?: number): string => {
+	if (!timestamp) return ''
+	const now = new Date()
+	const publishDate = new Date(timestamp * 1000) // 转换为毫秒
+	const diff = now.getTime() - publishDate.getTime()
+	const minutes = Math.floor(diff / 60000)
+	const hours = Math.floor(diff / 3600000)
+	const days = Math.floor(diff / 86400000)
+
+	if (minutes < 1) {
+		return '刚刚'
+	} else if (minutes < 60) {
+		return `${minutes}分钟前`
+	} else if (hours < 24) {
+		return `${hours}小时前`
+	} else if (days < 7) {
+		return `${days}天前`
+	} else {
+		return publishDate.toLocaleDateString('zh-CN', {
+			month: '2-digit',
+			day: '2-digit',
+		})
+	}
+}
+
 const handleImageError = (index: number) => {
 	imageErrors.value[index] = true
 	console.warn(`图片加载失败: index ${index}`)
@@ -142,8 +167,10 @@ const clickNews = (news: BilibiliDynamic, index: number) => {
 				<!-- 标题 -->
 				<h3 v-if="item.标题" class="news-title">{{ item.标题 }}</h3>
 
-				<!-- 互动数据 -->
-				<div class="news-stats">
+				<!-- 互动数据和发布时间 -->
+				<div class="news-stats-wrapper">
+					<!-- 互动数据 -->
+					<div class="news-stats">
 					<div class="news-stat-item">
 						<svg
 							class="news-stat-icon"
@@ -186,6 +213,11 @@ const clickNews = (news: BilibiliDynamic, index: number) => {
 							<path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
 						</svg>
 						<span class="news-stat-value">{{ item.转发数 }}</span>
+					</div>
+					</div>
+					<!-- 发布时间 -->
+					<div v-if="item.发布时间" class="news-publish-time">
+						{{ formatPublishTime(item.发布时间) }}
 					</div>
 				</div>
 			</div>

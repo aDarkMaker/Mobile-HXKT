@@ -132,14 +132,23 @@
 		text-overflow: ellipsis;
 	}
 
+	/* 互动数据和发布时间容器 */
+	.news-stats-wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 8px;
+		border-top: 1px solid var(--home-news-border);
+		gap: 12px;
+	}
+
 	/* 互动数据区域 */
 	.news-stats {
 		display: flex;
 		justify-content: flex-start;
 		gap: 20px;
 		align-items: center;
-		padding-top: 8px;
-		border-top: 1px solid var(--home-news-border);
+		flex: 1;
 	}
 
 	.news-stat-item {
@@ -162,6 +171,17 @@
 		color: var(--home-news-content);
 	}
 
+	/* 发布时间 */
+	.news-publish-time {
+		font-size: 12px;
+		color: var(--home-news-time);
+		white-space: nowrap;
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		line-height: 1;
+	}
+
 	/* 响应式设计 */
 	@media (max-width: 480px) {
 		.latest-news {
@@ -177,9 +197,22 @@
 			margin-bottom: 10px;
 		}
 
+		.news-stats-wrapper {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			gap: 12px;
+			padding-top: 6px;
+		}
+
 		.news-stats {
 			gap: 16px;
-			padding-top: 6px;
+			flex: 1;
+		}
+
+		.news-publish-time {
+			font-size: 11px;
+			line-height: 1;
 		}
 
 		.news-stat-icon {
