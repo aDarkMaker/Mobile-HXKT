@@ -10,6 +10,8 @@
 		background: var(--settings-surface);
 		box-shadow: var(--settings-shadow);
 		backdrop-filter: blur(18px);
+		overflow-x: hidden;
+		box-sizing: border-box;
 	}
 
 	.settings-page__title {

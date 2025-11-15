@@ -17,10 +17,23 @@ body {
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* IE and Edge */
 	padding-top: env(safe-area-inset-top, 0px);
+	margin: 0;
+	padding-left: 0;
+	padding-right: 0;
+	overflow-x: hidden; /* 防止横向滚动 */
+	width: 100%;
+	position: relative;
 }
 
 /* 隐藏 WebKit 浏览器的滚动条 */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
 	display: none;
+}
+
+/* 确保根元素不产生滚动 */
+#app {
+	width: 100%;
+	overflow-x: hidden;
+	position: relative;
 }
