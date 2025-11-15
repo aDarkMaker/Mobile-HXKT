@@ -41,6 +41,11 @@
 		touch-action: none;
 	}
 
+	/* 当有背景图片时，移除虚线边框 */
+	.settings-background__preview:not(.settings-background__preview--empty) {
+		border: none;
+	}
+
 	.settings-background__preview--dragging {
 		cursor: grabbing;
 	}
@@ -55,8 +60,7 @@
 	}
 
 	.settings-background__preview:hover:not(.settings-background__preview--empty) {
-		border-color: var(--dropdown-active-text);
-		border-style: solid;
+		border: none;
 	}
 
 	/* 位置指示器 */
@@ -71,7 +75,9 @@
 		transform: translate(-50%, -50%);
 		pointer-events: none;
 		z-index: 10;
-		transition: opacity 0.2s ease, transform 0.1s ease;
+		transition:
+			opacity 0.2s ease,
+			transform 0.1s ease;
 		opacity: 0;
 	}
 
