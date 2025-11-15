@@ -147,7 +147,7 @@
 			},
 			"username": {
 				"label": "Real Name",
-				"placeholder": "Enter username",
+				"placeholder": "Complete real name",
 				"hint": "Real name for authentication"
 			},
 			"nickname": {

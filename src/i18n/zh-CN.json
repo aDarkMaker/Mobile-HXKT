@@ -147,7 +147,7 @@
 			},
 			"username": {
 				"label": "实名",
-				"placeholder": "请输入账号",
+				"placeholder": "请完成实名",
 				"hint": "实名用于认证"
 			},
 			"nickname": {
