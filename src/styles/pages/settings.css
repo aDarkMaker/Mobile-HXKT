@@ -119,6 +119,13 @@
 		gap: 18px;
 		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 		width: 100%;
+		min-width: 0;
+		box-sizing: border-box;
+	}
+
+	.settings-fields > * {
+		min-width: 0;
+		width: 100%;
 	}
 
 	/* 密码修改 */
@@ -150,6 +157,14 @@
 		padding: 20px;
 		border-radius: 16px;
 		background: var(--card-background);
+		width: 100%;
+		min-width: 0;
+		box-sizing: border-box;
+	}
+
+	.settings-password__form > * {
+		min-width: 0;
+		width: 100%;
 	}
 
 	.settings-password__actions {
@@ -235,6 +250,11 @@
 
 		.settings-avatar__btn {
 			flex: 1;
+		}
+
+		.settings-fields,
+		.settings-password__form {
+			grid-template-columns: 1fr;
 		}
 	}
 }
