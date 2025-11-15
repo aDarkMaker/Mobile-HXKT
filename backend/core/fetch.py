@@ -14,13 +14,11 @@ def fetch_bilibili_dynamics() -> List[Dict[str, Any]]:
     """
     # 加载环境变量
     load_dotenv()
-    
-    # 从环境变量读取配置
+
     bilibili_cookie = os.getenv("BILIBILI_COOKIE", "")
     bilibili_user_agent = os.getenv("BILIBILI_USER_AGENT", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0")
     bilibili_referer = os.getenv("BILIBILI_REFERER", "https://www.bilibili.com/")
-    
-    # 检查必需的配置
+
     if not bilibili_cookie:
         raise ValueError("未设置 BILIBILI_COOKIE 环境变量，请在 .env 文件中设置 BILIBILI_COOKIE")
     
@@ -172,11 +170,7 @@ def fetch_bilibili_dynamics() -> List[Dict[str, Any]]:
                         cover = first_pic.get("url", "") or first_pic.get("src", "") or first_pic.get("src_small", "")
                     elif isinstance(first_pic, str):
                         cover = first_pic
-        
-        # 判断动态类型
-        # DYNAMIC_TYPE_WORD (17): 纯文字动态 - 只有文字，没有封面
-        # DYNAMIC_TYPE_DRAW (11): 带图动态 - 有图片
-        # DYNAMIC_TYPE_OPUS: 图文动态 - 有文字和图片
+
         is_word_type = item_type == "17" or item_type == 17 or "WORD" in str(item_type).upper()
         is_draw_type = (item_type == "11" or item_type == 11 or 
                         major_type == "MAJOR_TYPE_DRAW" or 
@@ -195,19 +189,13 @@ def fetch_bilibili_dynamics() -> List[Dict[str, Any]]:
                         cover = first_item.get("src", "") or first_item.get("url", "") or first_item.get("src_small", "")
                     elif isinstance(first_item, str):
                         cover = first_item
-        
-        # 判断是否是图文动态: 
-        # 1. 检查major_type是否为MAJOR_TYPE_OPUS
-        # 2. 检查是否有opus字段
-        # 3. 检查封面URL是否包含new_dyn（图文动态的特征）
-        # 4. 检查item_type是否包含OPUS
+
         cover_is_opus = "new_dyn" in cover if cover else False
         has_opus_field = "opus" in major or bool(opus_data)
         item_type_is_opus = "OPUS" in str(item_type).upper() if item_type else False
         
         is_opus = (major_type == "MAJOR_TYPE_OPUS" or has_opus_field or cover_is_opus or item_type_is_opus)
-        
-        # 如果封面包含new_dyn但还没识别为图文动态,强制识别并查找opus数据
+
         if cover_is_opus:
             is_opus = True
             # 如果还没有opus_data,尝试从major中查找
@@ -288,8 +276,6 @@ def fetch_bilibili_dynamics() -> List[Dict[str, Any]]:
         
         # 处理带图动态 (DYNAMIC_TYPE_DRAW) - 可能也有文字描述
         elif is_draw_type:
-            # 带图动态: 文字内容已经在上面从module_dynamic.desc获取
-            # 如果没有，尝试从desc_source获取（转发动态的情况）
             if not text_content:
                 text_content = extract_text_from_desc(desc_source)
         

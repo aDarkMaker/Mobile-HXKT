@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
 export interface User {
 	id?: number
@@ -61,6 +61,8 @@ export function useAuth() {
 			//   body: JSON.stringify({ username, password })
 			// })
 			// const data = await response.json()
+			// password 参数将在实际API调用时使用
+			void password
 
 			// 临时模拟登录成功
 			const mockUser: User = {
