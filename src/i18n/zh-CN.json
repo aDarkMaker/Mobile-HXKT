@@ -146,9 +146,9 @@
 				"change": "更换头像"
 			},
 			"username": {
-				"label": "账号",
+				"label": "实名",
 				"placeholder": "请输入账号",
-				"hint": "账号用于登录"
+				"hint": "实名用于认证"
 			},
 			"nickname": {
 				"label": "昵称",

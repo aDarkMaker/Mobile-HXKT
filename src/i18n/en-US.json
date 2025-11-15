@@ -146,9 +146,9 @@
 				"change": "Change"
 			},
 			"username": {
-				"label": "Username",
+				"label": "Real Name",
 				"placeholder": "Enter username",
-				"hint": "Username for login"
+				"hint": "Real name for authentication"
 			},
 			"nickname": {
 				"label": "Nickname",
