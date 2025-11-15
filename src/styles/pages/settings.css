@@ -49,6 +49,7 @@
 		padding: 20px;
 		border-radius: 16px;
 		background: var(--card-background);
+		box-shadow: var(--card-shadow);
 	}
 
 	.settings-avatar__preview {
