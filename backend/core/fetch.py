@@ -88,9 +88,6 @@ def fetch_bilibili_dynamics() -> List[Dict[str, Any]]:
         elif not isinstance(orig, dict):
             orig = {}
         
-        # 确定使用哪个动态作为主要数据源
-        # 注意: desc (动态文字内容) 应该始终从 module_dynamic.desc 获取，而不是从 orig 获取
-        # 因为 desc 是当前动态的文字内容，而不是转发原动态的文字内容
         module_desc = module_dynamic.get("desc") or {}
         
         if orig:
