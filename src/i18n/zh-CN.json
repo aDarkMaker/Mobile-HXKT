@@ -6,6 +6,10 @@
 		"tasks": "任务",
 		"settings": "设置"
 	},
+	"files": {
+		"title": "文件",
+		"underConstruction": "该功能正在开发中，敬请期待..."
+	},
 	"calendar": {
 		"title": "日历",
 		"today": "今天",

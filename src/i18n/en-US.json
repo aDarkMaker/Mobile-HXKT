@@ -6,6 +6,10 @@
 		"tasks": "Tasks",
 		"settings": "Settings"
 	},
+	"files": {
+		"title": "Files",
+		"underConstruction": "This feature is under construction, please stay tuned..."
+	},
 	"calendar": {
 		"title": "Calendar",
 		"today": "Today",
