@@ -6,6 +6,44 @@
 		"tasks": "Tasks",
 		"settings": "Settings"
 	},
+	"auth": {
+		"title": "HXK Terminal",
+		"loading": "Processing...",
+		"login": {
+			"subtitle": "Welcome back",
+			"usernameLabel": "Username",
+			"usernamePlaceholder": "Use real name",
+			"passwordLabel": "Password",
+			"passwordPlaceholder": "Enter password",
+			"submit": "Login",
+			"switchText": "Don't have an account?",
+			"switchAction": "Sign up",
+			"errors": {
+				"empty": "Please enter username and password",
+				"failed": "Login failed, please check your credentials"
+			}
+		},
+		"register": {
+			"subtitle": "Create new account",
+			"usernameLabel": "Username",
+			"usernamePlaceholder": "Use real name",
+			"nicknameLabel": "Nickname",
+			"nicknamePlaceholder": "Enter nickname (optional)",
+			"passwordLabel": "Password",
+			"passwordPlaceholder": "Enter password",
+			"confirmPasswordLabel": "Confirm Password",
+			"confirmPasswordPlaceholder": "Enter password again",
+			"submit": "Register",
+			"switchText": "Already have an account?",
+			"switchAction": "Sign in",
+			"errors": {
+				"empty": "Please fill in all required fields",
+				"mismatch": "Passwords do not match",
+				"tooShort": "Password must be at least 6 characters",
+				"failed": "Registration failed, please try again later"
+			}
+		}
+	},
 	"files": {
 		"title": "Files",
 		"underConstruction": "This feature is under construction, please stay tuned..."
@@ -106,6 +144,7 @@
 	},
 	"settings": {
 		"title": "Settings",
+		"logout": "Logout",
 		"sections": {
 			"display": "Display",
 			"notifications": "Notifications",

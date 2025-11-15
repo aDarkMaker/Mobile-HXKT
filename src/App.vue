@@ -6,12 +6,15 @@ import CalendarPage from './pages/CalendarPage.vue'
 import HomePage from './pages/HomePage.vue'
 import TaskPage from './pages/TaskPage.vue'
 import FilesPage from './pages/FilesPage.vue'
+import LoginPage from './pages/LoginPage.vue'
 import type { Announcement, BilibiliDynamic } from './ts/home'
 import { useBottomNav } from './ts/useBottomNav'
 import { useBackgroundImage } from './ts/background'
+import { useAuth } from './ts/auth'
 
 const { activeKey } = useBottomNav()
 useBackgroundImage()
+const { isAuthenticated } = useAuth()
 
 /**
  * 公告板
@@ -48,19 +51,25 @@ onMounted(async () => {
 
 <template>
 	<div class="app-shell">
-		<main class="app-body">
-			<HomePage
-				v-if="activeKey === 'home'"
-				:announcements="announcements"
-				:news="bilibiliDynamics"
-			/>
-			<FilesPage v-if="activeKey === 'files'" />
-			<TaskPage v-if="activeKey === 'tasks'" />
-			<CalendarPage v-if="activeKey === 'calendar'" />
-			<SettingsPage v-if="activeKey === 'settings'" />
-		</main>
+		<!-- 未登录时显示登录页面 -->
+		<LoginPage v-if="!isAuthenticated" />
 
-		<BottomNav />
+		<!-- 已登录时显示主应用 -->
+		<template v-else>
+			<main class="app-body">
+				<HomePage
+					v-if="activeKey === 'home'"
+					:announcements="announcements"
+					:news="bilibiliDynamics"
+				/>
+				<FilesPage v-if="activeKey === 'files'" />
+				<TaskPage v-if="activeKey === 'tasks'" />
+				<CalendarPage v-if="activeKey === 'calendar'" />
+				<SettingsPage v-if="activeKey === 'settings'" />
+			</main>
+
+			<BottomNav />
+		</template>
 	</div>
 </template>
 

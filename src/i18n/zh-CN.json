@@ -6,6 +6,44 @@
 		"tasks": "任务",
 		"settings": "设置"
 	},
+	"auth": {
+		"title": "HXK Terminal",
+		"loading": "处理中...",
+		"login": {
+			"subtitle": "欢迎回来",
+			"usernameLabel": "账号",
+			"usernamePlaceholder": "请输入实名",
+			"passwordLabel": "密码",
+			"passwordPlaceholder": "请输入密码",
+			"submit": "登录",
+			"switchText": "还没有账号？",
+			"switchAction": "立即注册",
+			"errors": {
+				"empty": "请输入账号和密码",
+				"failed": "登录失败，请检查账号和密码"
+			}
+		},
+		"register": {
+			"subtitle": "创建新账号",
+			"usernameLabel": "账号",
+			"usernamePlaceholder": "请使用真实姓名",
+			"nicknameLabel": "昵称",
+			"nicknamePlaceholder": "请输入昵称（可选）",
+			"passwordLabel": "密码",
+			"passwordPlaceholder": "请输入密码",
+			"confirmPasswordLabel": "确认密码",
+			"confirmPasswordPlaceholder": "请再次输入密码",
+			"submit": "注册",
+			"switchText": "已有账号？",
+			"switchAction": "立即登录",
+			"errors": {
+				"empty": "请填写所有必填字段",
+				"mismatch": "两次输入的密码不一致",
+				"tooShort": "密码长度至少6位",
+				"failed": "注册失败，请稍后重试"
+			}
+		}
+	},
 	"files": {
 		"title": "文件",
 		"underConstruction": "该功能正在开发中，敬请期待..."
@@ -106,6 +144,7 @@
 	},
 	"settings": {
 		"title": "设置",
+		"logout": "退出登录",
 		"sections": {
 			"display": "显示设置",
 			"notifications": "通知设置",

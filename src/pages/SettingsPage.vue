@@ -8,10 +8,12 @@ import type { DropDownOption } from '../ts/dropdown'
 import { useI18n, type Locale } from '../ts/i18n'
 import { useTheme, type ThemeMode } from '../ts/theme'
 import { useAccount } from '../ts/account'
+import { useAuth } from '../ts/auth'
 
 const { t, locale, setLocale, availableLocales } = useI18n()
 const { mode: themeMode, setMode: setThemeMode } = useTheme()
 const { account, updateProfile, setAvatar, updatePassword } = useAccount()
+const { logout } = useAuth()
 const APP_VERSION = '1.0.0'
 
 const languageOptions = computed<DropDownOption[]>(() =>
@@ -284,6 +286,13 @@ const handlePasswordChange = async () => {
 					:placeholder="t('settings.notification.placeholder')"
 				/>
 			</div>
+		</div>
+
+		<!-- 退出登录 -->
+		<div class="settings-section">
+			<button type="button" class="settings-logout" @click="logout">
+				{{ t('settings.logout') }}
+			</button>
 		</div>
 	</section>
 </template>

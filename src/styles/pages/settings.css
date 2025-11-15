@@ -232,6 +232,29 @@
 		transform: translateY(-8px) scale(0.98);
 	}
 
+	/* 退出登录 */
+	.settings-logout {
+		width: 100%;
+		padding: 14px 20px;
+		border-radius: 12px;
+		border: 1px solid var(--input-error);
+		background: rgba(239, 68, 68, 0.1);
+		color: var(--input-error);
+		font-size: 15px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+	}
+
+	.settings-logout:hover {
+		background: rgba(239, 68, 68, 0.2);
+	}
+
+	.settings-logout:active {
+		opacity: 0.8;
+	}
+
 	@media (max-width: 640px) {
 		.settings-page {
 			padding: 24px 20px;
