@@ -1,8 +1,12 @@
-import requests  # pyright: ignore[reportMissingModuleSource]
 import json
+import logging
 import os
+from typing import Any, Dict, List  # pyright: ignore[reportMissingImports]
+
+import requests  # pyright: ignore[reportMissingModuleSource]
 from dotenv import load_dotenv  # pyright: ignore[reportMissingImports]
-from typing import List, Dict, Any  # pyright: ignore[reportMissingImports]
+
+CACHE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bilibili-dynamics.json")
 
 
 def fetch_bilibili_dynamics() -> List[Dict[str, Any]]:
@@ -278,29 +282,7 @@ def fetch_bilibili_dynamics() -> List[Dict[str, Any]]:
         elif is_draw_type:
             if not text_content:
                 text_content = extract_text_from_desc(desc_source)
-        
-        # 调试: 保存前两条动态的完整数据（特别是图文和文字动态）
-        if idx < 2 and (is_word_type or is_draw_type or is_opus or major_type == "" or bool(module_desc) or text_content):
-            debug_item_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"debug_item_{idx+1}.json")
-            try:
-                with open(debug_item_file, "w", encoding="utf-8") as f:
-                    json.dump({
-                        "item_type": item_type,
-                        "major_type": major_type,
-                        "is_word_type": is_word_type,
-                        "is_draw_type": is_draw_type,
-                        "is_opus": is_opus,
-                        "module_dynamic": module_dynamic,
-                        "module_desc": module_desc,
-                        "text_content_extracted": text_content[:100] if text_content else "",  # 只保存前100个字符
-                        "text_content_length": len(text_content) if text_content else 0,
-                        "major": major,
-                        "desc_source": desc_source,
-                        "orig": orig if orig else None
-                    }, f, ensure_ascii=False, indent=2)
-            except Exception as e:
-                pass
-        
+
         # 提取标题 (图文动态和纯文字动态不存储标题)
         title = ""
         if not is_opus and not is_word_type:
@@ -395,18 +377,32 @@ def fetch_bilibili_dynamics() -> List[Dict[str, Any]]:
     return dynamics
 
 
-# 如果直接运行脚本，则执行并保存到文件
+def load_cached_dynamics() -> List[Dict[str, Any]]:
+    if not os.path.exists(CACHE_FILE):
+        return []
+    try:
+        with open(CACHE_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            if isinstance(data, list):
+                return data
+    except Exception as exc:  # pragma: no cover
+        logging.warning("读取 B 站动态缓存失败: %s", exc)
+    return []
+
+
+def save_cached_dynamics(dynamics: List[Dict[str, Any]]) -> None:
+    try:
+        with open(CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(dynamics, f, ensure_ascii=False, indent=2)
+    except Exception as exc:  # pragma: no cover
+        logging.error("写入 B 站动态缓存失败: %s", exc)
+
+
 if __name__ == "__main__":
     try:
         dynamics = fetch_bilibili_dynamics()
-        
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        output_file = os.path.join(script_dir, "bilibili-dynamics.json")
-        
-        with open(output_file, "w", encoding="utf-8") as f:
-            json.dump(dynamics, f, ensure_ascii=False, indent=2)
-        
-        print(f"成功获取 {len(dynamics)} 条动态，已保存到 {output_file}")
-    except Exception as e:
+        save_cached_dynamics(dynamics)
+        print(f"成功获取 {len(dynamics)} 条动态，已保存到 {CACHE_FILE}")
+    except Exception as e:  # pragma: no cover
         print(f"错误: {e}")
         exit(1)
