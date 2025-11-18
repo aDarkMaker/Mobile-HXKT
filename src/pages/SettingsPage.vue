@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import DropDown from '../components/DropDown.vue'
 import InputField from '../components/InputField.vue'
 import SettingsVersionInfo from '../components/SettingsVersionInfo.vue'
@@ -13,7 +13,7 @@ import { useAuth } from '../ts/auth'
 const { t, locale, setLocale, availableLocales } = useI18n()
 const { mode: themeMode, setMode: setThemeMode } = useTheme()
 const { account, updateProfile, setAvatar, updatePassword } = useAccount()
-const { logout } = useAuth()
+const { currentUser, logout } = useAuth()
 const APP_VERSION = '1.0.0'
 
 const languageOptions = computed<DropDownOption[]>(() =>
@@ -54,6 +54,16 @@ const confirmPassword = ref('')
 const passwordError = ref('')
 
 const avatarFileInput = ref<HTMLInputElement | null>(null)
+
+watch(
+	() => currentUser.value,
+	(user) => {
+		if (!user) return
+		account.value.username = user.username
+		account.value.nickname = user.nickname ?? user.username
+	},
+	{ immediate: true },
+)
 
 const handleAvatarUpload = (event: Event) => {
 	const target = event.target as HTMLInputElement

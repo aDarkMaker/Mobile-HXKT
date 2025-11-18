@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { defineOptions } from 'vue'
 import InputField from '../components/InputField.vue'
 import { useAuth } from '../ts/auth'
 import { useI18n } from '../ts/i18n'

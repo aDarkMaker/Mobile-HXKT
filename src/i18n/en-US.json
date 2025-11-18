@@ -108,6 +108,12 @@
 			"title": "No tasks",
 			"description": "Click the \"Publish Task\" button to create"
 		},
+		"errors": {
+			"loadFailed": "Failed to load tasks, please retry later",
+			"acceptFailed": "Failed to accept the task, please retry later",
+			"completeFailed": "Failed to complete the task, please retry later",
+			"abandonFailed": "Failed to abandon the task, please retry later"
+		},
 		"form": {
 			"title": "Publish Task",
 			"titleLabel": "Task Title",

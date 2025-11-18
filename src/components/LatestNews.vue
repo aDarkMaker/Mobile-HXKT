@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
-import { defineOptions } from 'vue'
 import type { BilibiliDynamic } from '../ts/home'
 
 defineOptions({

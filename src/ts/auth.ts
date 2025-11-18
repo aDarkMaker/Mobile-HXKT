@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+import { authApi } from '../utils/api'
 
 export interface User {
 	id?: number
@@ -13,6 +14,11 @@ const STORAGE_KEY_USER = 'hxkt.user'
 
 const isAuthenticated = ref<boolean>(false)
 const currentUser = ref<User | null>(null)
+
+const saveTokenOnly = (token: string) => {
+	if (typeof window === 'undefined') return
+	window.localStorage.setItem(STORAGE_KEY_AUTH, token)
+}
 
 function loadAuth() {
 	if (typeof window === 'undefined') return
@@ -51,32 +57,24 @@ loadAuth()
 
 export function useAuth() {
 	const login = async (username: string, password: string): Promise<void> => {
-		// TODO: 调用后端API进行登录
-		// 临时实现：模拟登录
 		try {
-			// 这里应该调用实际的API
-			// const response = await fetch('/api/auth/login', {
-			//   method: 'POST',
-			//   headers: { 'Content-Type': 'application/json' },
-			//   body: JSON.stringify({ username, password })
-			// })
-			// const data = await response.json()
-			// password 参数将在实际API调用时使用
-			void password
+			const response = await authApi.login(username, password)
+			const token = response.access_token
+			saveTokenOnly(token) // 先存 token，保证后续请求带上 Authorization
+			const userInfo = await authApi.getMe()
 
-			// 临时模拟登录成功
-			const mockUser: User = {
-				id: 1,
-				username,
-				nickname: username,
-				avatar: null,
+			const user: User = {
+				id: userInfo.id,
+				username: userInfo.username,
+				nickname: userInfo.nickname || userInfo.username,
+				avatar: userInfo.avatar,
 			}
-			const mockToken = 'mock_token_' + Date.now()
 
-			saveAuth(mockUser, mockToken)
-			currentUser.value = mockUser
+			saveAuth(user, token)
+			currentUser.value = user
 			isAuthenticated.value = true
 		} catch (error) {
+			clearAuth()
 			console.error('Login failed:', error)
 			throw error
 		}
@@ -87,30 +85,26 @@ export function useAuth() {
 		password: string,
 		nickname?: string,
 	): Promise<void> => {
-		// TODO: 调用后端API进行注册
-		// 临时实现：模拟注册
 		try {
-			// 这里应该调用实际的API
-			// const response = await fetch('/api/auth/register', {
-			//   method: 'POST',
-			//   headers: { 'Content-Type': 'application/json' },
-			//   body: JSON.stringify({ username, password, nickname })
-			// })
-			// const data = await response.json()
+			const response = await authApi.register(username, password, nickname)
+			const token = response.access_token
+			saveTokenOnly(token)
 
-			// 临时模拟注册成功
-			const mockUser: User = {
-				id: Date.now(),
-				username,
-				nickname: nickname || username,
-				avatar: null,
+			// 获取用户信息
+			const userInfo = await authApi.getMe()
+
+			const user: User = {
+				id: userInfo.id,
+				username: userInfo.username,
+				nickname: userInfo.nickname || userInfo.username,
+				avatar: userInfo.avatar,
 			}
-			const mockToken = 'mock_token_' + Date.now()
 
-			saveAuth(mockUser, mockToken)
-			currentUser.value = mockUser
+			saveAuth(user, token)
+			currentUser.value = user
 			isAuthenticated.value = true
 		} catch (error) {
+			clearAuth()
 			console.error('Register failed:', error)
 			throw error
 		}

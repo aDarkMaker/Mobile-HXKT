@@ -43,7 +43,8 @@ export interface ApiTask {
 	tags: string[]
 	accepted_count: number
 	max_accept_count: number
-	status?: string
+	status?: string | null
+	is_accepted?: boolean
 }
 
 // API 返回的已接取任务数据格式
@@ -56,3 +57,20 @@ export interface ApiTaskAcceptance {
 	task: ApiTask
 }
 
+export function convertApiTaskToTask(apiTask: ApiTask): Task {
+	return {
+		id: String(apiTask.id),
+		title: apiTask.title,
+		description: apiTask.description,
+		type: apiTask.type,
+		priority: (apiTask.priority as TaskPriority) ?? 2,
+		publisherName: apiTask.publisher_name,
+		createdAt: apiTask.created_at,
+		deadline: apiTask.deadline,
+		tags: apiTask.tags ?? [],
+		acceptedCount: apiTask.accepted_count,
+		maxAcceptCount: apiTask.max_accept_count,
+		isAccepted: apiTask.is_accepted ?? false,
+		status: (apiTask.status as TaskStatus | undefined) ?? 'available',
+	}
+}

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineOptions } from 'vue'
 import type { Announcement } from '../ts/home'
 
 defineOptions({

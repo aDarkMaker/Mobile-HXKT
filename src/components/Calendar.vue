@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, defineOptions } from 'vue'
+import { computed, ref } from 'vue'
 import {
 	type CalendarEvent,
 	isToday,

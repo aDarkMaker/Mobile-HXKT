@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
-import { defineOptions } from 'vue'
 import InputField from './InputField.vue'
 import DropDown from './DropDown.vue'
-import type { TaskFormData, TaskType, TaskPriority } from '../ts/task'
+import type { TaskFormData, TaskPriority } from '../ts/task'
 import type { DropDownOption } from '../ts/dropdown'
 import { useI18n } from '../ts/i18n'
+import { taskApi } from '../utils/api'
 
 defineOptions({
 	name: 'PublishTaskModal',
@@ -89,12 +89,15 @@ const handleSubmit = async () => {
 	}
 
 	try {
-		// TODO: 调用 API 发布任务
-		const taskData = {
-			...formData.value,
+		await taskApi.createTask({
+			title: formData.value.title.trim(),
+			description: formData.value.description.trim(),
+			type: formData.value.type,
+			priority: formData.value.priority,
+			deadline: formData.value.deadline || null,
 			tags,
-		}
-		console.log('发布任务:', taskData)
+			max_accept_count: formData.value.maxAcceptCount,
+		})
 
 		// 成功后触发 published 事件
 		emit('published')
@@ -106,7 +109,7 @@ const handleSubmit = async () => {
 		handleClose()
 	} catch (error) {
 		console.error('发布任务失败:', error)
-		alert(t('task.form.errors.publishFailed'))
+		alert(error instanceof Error ? error.message : t('task.form.errors.publishFailed'))
 	}
 }
 
@@ -189,10 +192,7 @@ const handleModalClick = (event: MouseEvent) => {
 						:placeholder="t('task.form.typePlaceholder')"
 					/>
 
-					<div
-						v-if="showMaxAcceptCount"
-						class="publish-task-modal__field"
-					>
+					<div v-if="showMaxAcceptCount" class="publish-task-modal__field">
 						<label class="publish-task-modal__label">
 							{{ t('task.form.maxCountLabel') }}
 						</label>
@@ -208,7 +208,9 @@ const handleModalClick = (event: MouseEvent) => {
 
 					<DropDown
 						:model-value="String(formData.priority)"
-						@update:model-value="(val) => (formData.priority = Number(val) as TaskPriority)"
+						@update:model-value="
+							(val) => (formData.priority = Number(val) as TaskPriority)
+						"
 						:options="priorityOptions"
 						:label="t('task.form.priorityLabel')"
 						:placeholder="t('task.form.priorityPlaceholder')"
@@ -260,4 +262,3 @@ const handleModalClick = (event: MouseEvent) => {
 </template>
 
 <style scoped src="../styles/components/publish-task-modal.css"></style>
-

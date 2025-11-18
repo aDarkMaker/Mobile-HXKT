@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineOptions, computed } from 'vue'
+import { computed } from 'vue'
 import type { Task, TaskTabType } from '../ts/task'
 
 defineOptions({
@@ -54,7 +54,11 @@ const handleAbandon = () => {
 	>
 		<!-- 任务头部 -->
 		<div class="task-card__header">
-			<div v-if="isMyTask" class="task-card__progress" :class="{ 'task-card__progress--completed': isCompleted }"></div>
+			<div
+				v-if="isMyTask"
+				class="task-card__progress"
+				:class="{ 'task-card__progress--completed': isCompleted }"
+			></div>
 			<div class="task-card__title-section">
 				<h3 class="task-card__title">{{ task.title }}</h3>
 				<div class="task-card__meta">
@@ -85,7 +89,9 @@ const handleAbandon = () => {
 							stroke="currentColor"
 							stroke-width="2"
 						>
-							<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+							<polygon
+								points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+							></polygon>
 						</svg>
 						高优先级
 					</span>
@@ -103,11 +109,7 @@ const handleAbandon = () => {
 		<!-- 标签和截止时间 -->
 		<div class="task-card__tags-deadline">
 			<div v-if="task.tags.length > 0" class="task-card__tags">
-				<span
-					v-for="tag in task.tags"
-					:key="tag"
-					class="task-card__tag"
-				>
+				<span v-for="tag in task.tags" :key="tag" class="task-card__tag">
 					<svg
 						class="task-card__tag-icon"
 						viewBox="0 0 24 24"
@@ -115,7 +117,9 @@ const handleAbandon = () => {
 						stroke="currentColor"
 						stroke-width="2"
 					>
-						<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+						<path
+							d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
+						></path>
 						<line x1="7" y1="7" x2="7.01" y2="7"></line>
 					</svg>
 					{{ tag }}
@@ -138,10 +142,7 @@ const handleAbandon = () => {
 		<!-- 任务底部 -->
 		<div class="task-card__footer">
 			<div class="task-card__footer-left">
-				<div
-					v-if="!isMyTask && task.type === 'team'"
-					class="task-card__team-info"
-				>
+				<div v-if="!isMyTask && task.type === 'team'" class="task-card__team-info">
 					<svg
 						class="task-card__team-icon"
 						viewBox="0 0 24 24"
@@ -244,4 +245,3 @@ const handleAbandon = () => {
 </template>
 
 <style scoped src="../styles/components/task-card.css"></style>
-

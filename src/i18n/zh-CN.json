@@ -108,6 +108,12 @@
 			"title": "暂无任务",
 			"description": "点击「发布任务」按钮创建新任务"
 		},
+		"errors": {
+			"loadFailed": "加载任务失败，请稍后重试",
+			"acceptFailed": "接取任务失败，请稍后重试",
+			"completeFailed": "提交失败，请稍后重试",
+			"abandonFailed": "操作失败，请稍后重试"
+		},
 		"form": {
 			"title": "发布任务",
 			"titleLabel": "任务标题",

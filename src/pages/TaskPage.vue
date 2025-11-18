@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { defineOptions } from 'vue'
 import TaskCard from '../components/TaskCard.vue'
 import PublishTaskModal from '../components/PublishTaskModal.vue'
-import type { Task, TaskTabType } from '../ts/task'
+import { convertApiTaskToTask, type Task, type TaskTabType } from '../ts/task'
 import { useI18n } from '../ts/i18n'
+import { taskApi } from '../utils/api'
 
 defineOptions({
 	name: 'TaskPage',
@@ -16,7 +16,7 @@ const selectedTab = ref<TaskTabType>('available')
 const availableTasks = ref<Task[]>([])
 const myTasks = ref<Task[]>([])
 const showPublishModal = ref(false)
-const isModalClosing = ref(false) // 标记模态框正在关闭
+const isModalClosing = ref(false)
 const loading = ref(false)
 
 // 计算属性：任务数量
@@ -51,30 +51,28 @@ const handleClosePublishModal = () => {
 
 // 任务发布成功后的回调
 const handleTaskPublished = async () => {
-	// handleClose 已经在 PublishTaskModal 中处理了关闭动画
-	// 这里只需要等待动画完成后关闭
 	await loadTasks()
 }
 
 // 接取任务
 const handleAcceptTask = async (taskId: string) => {
 	try {
-		// TODO: 调用 API 接取任务
-		console.log('接取任务:', taskId)
+		await taskApi.acceptTask(Number(taskId))
 		await loadTasks()
 	} catch (error) {
 		console.error('接取任务失败:', error)
+		alert(error instanceof Error ? error.message : t('task.errors.acceptFailed'))
 	}
 }
 
 // 完成任务
 const handleCompleteTask = async (taskId: string) => {
 	try {
-		// TODO: 调用 API 完成任务
-		console.log('完成任务:', taskId)
+		await taskApi.completeTask(Number(taskId))
 		await loadTasks()
 	} catch (error) {
 		console.error('完成任务失败:', error)
+		alert(error instanceof Error ? error.message : t('task.errors.completeFailed'))
 	}
 }
 
@@ -84,11 +82,11 @@ const handleAbandonTask = async (taskId: string) => {
 		return
 	}
 	try {
-		// TODO: 调用 API 放弃任务
-		console.log('放弃任务:', taskId)
+		await taskApi.abandonTask(Number(taskId))
 		await loadTasks()
 	} catch (error) {
 		console.error('放弃任务失败:', error)
+		alert(error instanceof Error ? error.message : t('task.errors.abandonFailed'))
 	}
 }
 
@@ -96,12 +94,15 @@ const handleAbandonTask = async (taskId: string) => {
 const loadTasks = async () => {
 	loading.value = true
 	try {
-		// TODO: 从后端 API 加载任务
-		// 暂时使用空数组
-		availableTasks.value = []
-		myTasks.value = []
+		const [availableData, myData] = await Promise.all([
+			taskApi.getTasks('available'),
+			taskApi.getTasks('my'),
+		])
+		availableTasks.value = availableData.map(convertApiTaskToTask)
+		myTasks.value = myData.map(convertApiTaskToTask)
 	} catch (error) {
 		console.error('加载任务失败:', error)
+		alert(error instanceof Error ? error.message : t('task.errors.loadFailed'))
 	} finally {
 		loading.value = false
 	}
@@ -157,9 +158,7 @@ onMounted(() => {
 					stroke="currentColor"
 					stroke-width="2"
 				>
-					<path
-						d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"
-					></path>
+					<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
 					<path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
 				</svg>
 				<span>{{ t('task.tabs.available') }}</span>
@@ -199,9 +198,7 @@ onMounted(() => {
 			<div v-else-if="currentTasks.length === 0" class="task-empty">
 				<div class="task-empty__icon">
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<path
-							d="M3 3h18v18H3z"
-						></path>
+						<path d="M3 3h18v18H3z"></path>
 						<path d="M3 9h18"></path>
 						<path d="M9 21V9"></path>
 					</svg>
@@ -232,4 +229,3 @@ onMounted(() => {
 </template>
 
 <style scoped src="../styles/pages/task.css"></style>
-

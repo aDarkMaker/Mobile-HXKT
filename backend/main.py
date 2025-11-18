@@ -3,6 +3,7 @@ import logging
 import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+from fastapi.middleware.cors import CORSMiddleware  # pyright: ignore[reportMissingImports]
 
 from fastapi import Depends, FastAPI, HTTPException, Query, status  # pyright: ignore[reportMissingImports]
 from fastapi.responses import FileResponse  # pyright: ignore[reportMissingImports]
@@ -46,6 +47,15 @@ app = FastAPI(debug=True)
 models.Base.metadata.create_all(bind=database.engine)
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "*"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 async def refresh_bilibili_dynamics() -> List[Dict[str, Any]]:

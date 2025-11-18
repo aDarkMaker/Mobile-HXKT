@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineOptions } from 'vue'
 import { useI18n } from '../ts/i18n'
 
 defineOptions({
@@ -28,4 +27,3 @@ const { t } = useI18n()
 </template>
 
 <style scoped src="../styles/pages/files.css"></style>
-

@@ -28,6 +28,14 @@ const announcements: Announcement[] = [
 	},
 ]
 
+const isDynamicsWrapper = (value: unknown): value is { dynamics: BilibiliDynamic[] } => {
+	return (
+		typeof value === 'object' &&
+		value !== null &&
+		Array.isArray((value as { dynamics?: unknown }).dynamics)
+	)
+}
+
 /**
  * B站动态数据
  */
@@ -35,12 +43,12 @@ const bilibiliDynamics = ref<BilibiliDynamic[]>([])
 
 onMounted(async () => {
 	try {
-		const response = await fetch('/bilibili-dynamics.json')
-		const data = await response.json()
-		// 兼容新旧数据结构：如果是数组直接使用，如果是对象则使用 dynamics 字段
+		const { getBilibiliDynamics } = await import('./utils/bilibili-api')
+		const data = await getBilibiliDynamics()
+
 		if (Array.isArray(data)) {
 			bilibiliDynamics.value = data
-		} else if (data.dynamics && Array.isArray(data.dynamics)) {
+		} else if (isDynamicsWrapper(data)) {
 			bilibiliDynamics.value = data.dynamics
 		}
 	} catch (error) {

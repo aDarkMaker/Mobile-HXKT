@@ -79,7 +79,6 @@
 		color: #ffffff;
 		font-size: 16px;
 		font-weight: 600;
-		cursor: pointer;
 		transition: all 0.2s ease;
 		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
 		margin-top: 8px;
@@ -114,7 +113,6 @@
 		color: var(--dropdown-active-text);
 		font-size: 14px;
 		font-weight: 600;
-		cursor: pointer;
 		padding: 4px 8px;
 		margin-left: 4px;
 		text-decoration: underline;
@@ -145,4 +143,3 @@
 		}
 	}
 }
-
