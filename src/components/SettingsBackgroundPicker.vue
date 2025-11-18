@@ -14,7 +14,6 @@ const {
 
 const fileInput = ref<HTMLInputElement | null>(null)
 const previewContainer = ref<HTMLDivElement | null>(null)
-const previewImage = ref<HTMLImageElement | null>(null)
 const isDragging = ref(false)
 const dragStart = ref({ x: 0, y: 0 })
 const imagePosition = ref({ x: 50, y: 50 }) // 百分比位置，默认居中
@@ -158,7 +157,7 @@ const handleMouseDown = (event: MouseEvent) => {
 
 const handleMouseMove = (event: MouseEvent) => {
 	if (!isDragging.value || !previewContainer.value) return
-	
+
 	throttleUpdate(() => {
 		const rect = previewContainer.value!.getBoundingClientRect()
 		const x = ((event.clientX - rect.left) / rect.width) * 100
@@ -199,7 +198,7 @@ const handleTouchMove = (event: TouchEvent) => {
 	if (!isDragging.value || !previewContainer.value) return
 	const touch = event.touches[0]
 	if (!touch) return
-	
+
 	throttleUpdate(() => {
 		const rect = previewContainer.value!.getBoundingClientRect()
 		const x = ((touch.clientX - rect.left) / rect.width) * 100
@@ -211,7 +210,7 @@ const handleTouchMove = (event: TouchEvent) => {
 			y: Math.max(0, Math.min(100, y)),
 		}
 	})
-	
+
 	event.preventDefault()
 }
 
@@ -271,10 +270,7 @@ onUnmounted(() => {
 				:class="{ 'settings-background__position-indicator--visible': isDragging }"
 				:style="indicatorStyle"
 			></div>
-			<div
-				v-if="backgroundImage"
-				class="settings-background__hint"
-			>
+			<div v-if="backgroundImage" class="settings-background__hint">
 				{{ t('settings.display.background.positionHint') }}
 			</div>
 		</div>

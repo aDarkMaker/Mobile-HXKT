@@ -1,31 +1,30 @@
 @layer components {
 	.task-card {
-		background: var(--home-news-background);
-		border-radius: 16px;
+		background: var(--task-card-bg);
+		border-radius: 18px;
 		padding: 20px;
-		margin-bottom: 16px;
-		box-shadow: var(--home-news-shadow);
-		transition: all 0.3s ease;
-		border-left: 4px solid transparent;
+		margin-bottom: 18px;
+		box-shadow: var(--task-card-shadow);
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
+		border: 1px solid var(--task-card-border);
 		position: relative;
 		overflow: hidden;
-		backdrop-filter: blur(16px);
-		border: 1px solid var(--home-news-border);
 	}
 
 	.task-card:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+		box-shadow: var(--task-card-hover-shadow);
 	}
 
 	.task-card--my-task {
-		border-left-color: #4299e1;
-		background: rgba(252, 254, 255, 0.95);
+		background: var(--task-card-bg-my);
+		border-color: var(--task-card-border-strong);
 	}
 
 	.task-card--completed {
-		border-left-color: #48bb78;
-		background: rgba(247, 255, 249, 0.95);
+		background: var(--task-card-bg-completed);
+		border-color: var(--task-card-border-success);
 	}
 
 	/* 任务头部 */
@@ -44,6 +43,7 @@
 		border-radius: 2px;
 		margin-right: 12px;
 		flex-shrink: 0;
+		display: none;
 	}
 
 	.task-card__progress--completed {
@@ -72,13 +72,13 @@
 	.task-card__tag {
 		display: inline-flex;
 		align-items: center;
-		gap: 4px;
-		padding: 4px 10px;
-		border-radius: 6px;
+		gap: 6px;
+		padding: 4px 12px;
+		border-radius: 999px;
 		font-size: 12px;
-		font-weight: 500;
-		background: var(--input-hover);
-		color: var(--text-secondary);
+		font-weight: 600;
+		background: var(--task-card-tag-bg);
+		color: var(--task-card-tag-color);
 	}
 
 	.task-card__tag--personal {
@@ -107,9 +107,16 @@
 	}
 
 	.task-card__tag-icon {
-		width: 12px;
-		height: 12px;
+		width: 14px;
+		height: 14px;
 		flex-shrink: 0;
+		filter: brightness(0) saturate(100%) invert(42%) sepia(11%) saturate(878%)
+			hue-rotate(176deg) brightness(86%) contrast(88%);
+	}
+
+	[data-theme='dark'] .task-card__tag-icon {
+		filter: brightness(0) saturate(100%) invert(88%) sepia(7%) saturate(540%) hue-rotate(184deg)
+			brightness(110%) contrast(92%);
 	}
 
 	.task-card__publisher {
@@ -132,9 +139,9 @@
 	.task-card__description {
 		font-size: 14px;
 		color: var(--text-secondary);
-		line-height: 1.6;
-		margin-bottom: 16px;
-		max-height: 72px;
+		line-height: 1.7;
+		margin-bottom: 18px;
+		max-height: 80px;
 		overflow: hidden;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
@@ -160,9 +167,11 @@
 		display: flex;
 		align-items: center;
 		gap: 6px;
-		color: #ed8936;
+		color: var(--task-card-deadline);
 		font-size: 13px;
-		font-weight: 500;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.02em;
 	}
 
 	.task-card__deadline-icon {
@@ -213,13 +222,14 @@
 		display: flex;
 		align-items: center;
 		gap: 6px;
-		padding: 8px 16px;
+		padding: 10px 18px;
 		border: none;
 		border-radius: 8px;
 		font-size: 13px;
 		font-weight: 600;
 		transition: all 0.2s ease;
 		font-family: 'AliBaBa', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+		box-shadow: var(--task-card-button-shadow);
 	}
 
 	.task-card__btn-icon {
@@ -228,35 +238,20 @@
 		flex-shrink: 0;
 	}
 
-	.task-card__btn--accept {
-		background: #70be90;
-		color: #ffffff;
-		box-shadow: 0 2px 2px rgba(72, 187, 120, 0.3);
-	}
-
-	.task-card__btn--accept:hover {
-		box-shadow: 0 2px 2px rgba(72, 187, 120, 0.4);
-	}
-
+	.task-card__btn--accept,
 	.task-card__btn--complete {
-		background: #70be90;
+		background: linear-gradient(135deg, #4ade80, #22c55e);
 		color: #ffffff;
-		box-shadow: 0 2px 2px rgba(72, 187, 120, 0.3);
-	}
-
-	.task-card__btn--complete:hover {
-		box-shadow: 0 2px 2px rgba(72, 187, 120, 0.4);
 	}
 
 	.task-card__btn--abandon {
-		background: #fed7d7;
-		color: #c53030;
-		box-shadow: 0 2px 2px rgba(197, 48, 48, 0.2);
+		background: linear-gradient(135deg, #fca5a5, #f87171);
+		color: #7f1d1d;
+		box-shadow: var(--task-card-button-shadow-danger);
 	}
 
 	.task-card__btn--abandon:hover {
-		background: #feb2b2;
-		box-shadow: 0 2px 2px rgba(197, 48, 48, 0.3);
+		transform: translateY(-1px);
 	}
 
 	.task-card__badge {
@@ -305,3 +300,5 @@
 		}
 	}
 }
+
+/* TODO: 调色 */

@@ -108,6 +108,14 @@
 			"title": "No tasks",
 			"description": "Click the \"Publish Task\" button to create"
 		},
+		"actions": {
+			"accept": "Accept",
+			"accepted": "Accepted",
+			"complete": "Complete",
+			"completed": "Completed",
+			"inProgress": "In progress",
+			"abandon": "Abandon"
+		},
 		"errors": {
 			"loadFailed": "Failed to load tasks, please retry later",
 			"acceptFailed": "Failed to accept the task, please retry later",

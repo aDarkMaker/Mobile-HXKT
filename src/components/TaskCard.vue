@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from '../ts/i18n'
 import type { Task, TaskTabType } from '../ts/task'
+import tagIcon from '../assets/img/tag.svg'
 
 defineOptions({
 	name: 'TaskCard',
@@ -16,6 +18,8 @@ const emit = defineEmits<{
 	(eventName: 'complete', taskId: string): void
 	(eventName: 'abandon', taskId: string): void
 }>()
+
+const { t } = useI18n()
 
 const isMyTask = computed(() => props.type === 'my-tasks')
 const isCompleted = computed(() => props.task.status === 'completed')
@@ -79,7 +83,11 @@ const handleAbandon = () => {
 							'task-card__tag--completed': task.status === 'completed',
 						}"
 					>
-						{{ task.status === 'completed' ? '已完成' : '进行中' }}
+						{{
+							task.status === 'completed'
+								? t('task.actions.completed')
+								: t('task.actions.inProgress')
+						}}
 					</span>
 					<span v-if="task.priority > 3" class="task-card__tag task-card__tag--priority">
 						<svg
@@ -109,19 +117,12 @@ const handleAbandon = () => {
 		<!-- 标签和截止时间 -->
 		<div class="task-card__tags-deadline">
 			<div v-if="task.tags.length > 0" class="task-card__tags">
-				<span v-for="tag in task.tags" :key="tag" class="task-card__tag">
-					<svg
-						class="task-card__tag-icon"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-					>
-						<path
-							d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
-						></path>
-						<line x1="7" y1="7" x2="7.01" y2="7"></line>
-					</svg>
+				<span
+					v-for="tag in task.tags"
+					:key="tag"
+					class="task-card__tag task-card__tag--pill"
+				>
+					<img :src="tagIcon" alt="" class="task-card__tag-icon" />
 					{{ tag }}
 				</span>
 			</div>
@@ -175,7 +176,7 @@ const handleAbandon = () => {
 						>
 							<polyline points="20 6 9 17 4 12"></polyline>
 						</svg>
-						接取任务
+						{{ t('task.actions.accept') }}
 					</button>
 					<div v-else class="task-card__badge">
 						<svg
@@ -187,7 +188,7 @@ const handleAbandon = () => {
 						>
 							<polyline points="20 6 9 17 4 12"></polyline>
 						</svg>
-						已接取
+						{{ t('task.actions.accepted') }}
 					</div>
 				</template>
 
@@ -203,7 +204,7 @@ const handleAbandon = () => {
 						>
 							<polyline points="20 6 9 17 4 12"></polyline>
 						</svg>
-						已完成
+						{{ t('task.actions.completed') }}
 					</div>
 					<template v-else>
 						<button
@@ -219,7 +220,7 @@ const handleAbandon = () => {
 							>
 								<polyline points="20 6 9 17 4 12"></polyline>
 							</svg>
-							完成
+							{{ t('task.actions.complete') }}
 						</button>
 						<button
 							class="task-card__btn task-card__btn--abandon"
@@ -235,7 +236,7 @@ const handleAbandon = () => {
 								<line x1="18" y1="6" x2="6" y2="18"></line>
 								<line x1="6" y1="6" x2="18" y2="18"></line>
 							</svg>
-							放弃
+							{{ t('task.actions.abandon') }}
 						</button>
 					</template>
 				</template>

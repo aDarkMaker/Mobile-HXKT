@@ -108,6 +108,14 @@
 			"title": "暂无任务",
 			"description": "点击「发布任务」按钮创建新任务"
 		},
+		"actions": {
+			"accept": "接取任务",
+			"accepted": "已接取",
+			"complete": "完成",
+			"completed": "已完成",
+			"inProgress": "进行中",
+			"abandon": "放弃"
+		},
 		"errors": {
 			"loadFailed": "加载任务失败，请稍后重试",
 			"acceptFailed": "接取任务失败，请稍后重试",
