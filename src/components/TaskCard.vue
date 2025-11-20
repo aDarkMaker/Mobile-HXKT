@@ -106,8 +106,12 @@ const handleAbandon = () => {
 				</div>
 			</div>
 			<div class="task-card__publisher">
-				<div class="task-card__publisher-name">{{ task.publisherName }}</div>
-				<div class="task-card__time">{{ formatDateTime(task.createdAt) }}</div>
+				<div class="task-card__publisher-name">
+					{{ t('task.publisher') }}{{ task.publisherName }}
+				</div>
+				<div class="task-card__time">
+					{{ t('task.Deadline') }}{{ formatDateTime(task.createdAt) }}
+				</div>
 			</div>
 		</div>
 

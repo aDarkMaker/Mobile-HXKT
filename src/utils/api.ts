@@ -108,6 +108,7 @@ export const taskApi = {
 	getTasks: async (scope: 'available' | 'my' = 'available') => {
 		return request<
 			Array<{
+				publisher: string
 				id: number
 				title: string
 				description: string

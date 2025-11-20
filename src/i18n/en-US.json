@@ -100,6 +100,8 @@
 		"publish": "Publish Task",
 		"loading": "Loading...",
 		"abandonConfirm": "Are you sure you want to abandon this task?",
+		"publisher": "Publisher-",
+		"Deadline": "Deadline: ",
 		"tabs": {
 			"available": "Available",
 			"myTasks": "My Tasks"

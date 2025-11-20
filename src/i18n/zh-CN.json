@@ -100,6 +100,8 @@
 		"publish": "发布任务",
 		"loading": "加载中...",
 		"abandonConfirm": "确定要放弃这个任务吗？",
+		"publisher": "发布者-",
+		"Deadline": "截止时间: ",
 		"tabs": {
 			"available": "待接取",
 			"myTasks": "我的任务"
