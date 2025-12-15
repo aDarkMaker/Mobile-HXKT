@@ -39,6 +39,13 @@ const onInput = (event: Event) => {
 	emit('update:modelValue', target.value)
 }
 
+const onChange = (event: Event) => {
+	const target = event.target as HTMLInputElement
+	const value = target.value || ''
+	console.log('[InputField] Change event:', { id: inputId.value, value, length: value.length })
+	emit('update:modelValue', value)
+}
+
 const onBlur = (event: FocusEvent) => emit('blur', event)
 const onFocus = (event: FocusEvent) => emit('focus', event)
 </script>
@@ -70,6 +77,7 @@ const onFocus = (event: FocusEvent) => emit('focus', event)
 				:required="required"
 				:autocomplete="autocomplete"
 				@input="onInput"
+				@change="onChange"
 				@focus="onFocus"
 				@blur="onBlur"
 			/>
