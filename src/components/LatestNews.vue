@@ -311,9 +311,22 @@ onMounted(() => {
 			</div>
 
 			<!-- 内容区域 -->
-			<div class="news-content-wrapper" :class="{ 'has-title': item.标题 }">
+			<div
+				class="news-content-wrapper"
+				:class="{ 'has-title': item.标题, 'has-text': item.文字 }"
+			>
 				<!-- 标题 -->
 				<h3 v-if="item.标题" class="news-title">{{ item.标题 }}</h3>
+
+				<!-- 文字内容（当没有标题时显示） -->
+				<div v-if="item.文字 && !item.标题" class="news-text">
+					{{ item.文字 }}
+				</div>
+
+				<!-- 文字内容（当有标题时也显示，但样式不同） -->
+				<div v-if="item.文字 && item.标题" class="news-text news-text--with-title">
+					{{ item.文字 }}
+				</div>
 
 				<!-- 互动数据和发布时间 -->
 				<div class="news-stats-wrapper">

@@ -11,6 +11,7 @@ export interface BilibiliDynamic {
 	标题?: string
 	播放量?: string
 	弹幕数?: string
+	文字?: string
 	点赞数: number
 	评论数: number
 	转发数: number
