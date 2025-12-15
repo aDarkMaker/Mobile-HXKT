@@ -87,6 +87,10 @@ const handleRegister = async () => {
 			registerNickname.value.trim() || undefined,
 		)
 		// 注册成功，由App.vue处理路由
+	} catch (err) {
+		const errorMessage = err instanceof Error ? err.message : t('auth.register.errors.failed')
+		error.value = errorMessage
+		console.error('Register error:', err)
 	} finally {
 		isLoading.value = false
 	}
